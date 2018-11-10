@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="RegexValidationEmail_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+select clr.xfnRegexIsValidEmail(N'john.doe@insperity.com'), 
+	clr.xfnRegexIsValidEmail(N'john.doe-insperity.com'), 
+	clr.xfnRegexIsValidEmail(N'jo@hn.doe@insperity.com'), 
+	clr.xfnRegexIsValidEmail(N'john.doe@insperity'),
+	clr.xfnRegexIsValidEmail(null)
+
+
+
+</value>
+  </data>
+  <data name="RegexValidationSSN_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+select clr.xfnRegexIsValidSSN(N'000-12-1234'), 
+	clr.xfnRegexIsValidSSN(N'487-12-1234'),
+	clr.xfnRegexIsValidSSN(N'487-12-123a'),
+	clr.xfnRegexIsValidSSN(null)</value>
+  </data>
+  <data name="RegexValidationUSPhone_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+select clr.xfnRegexIsValidUSPhone(N'123-456-7890'),
+	clr.xfnRegexIsValidUSPhone(N'123-456-789a'),
+	clr.xfnRegexIsValidUSPhone(null)</value>
+  </data>
+  <data name="RegexValidationUSZip_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+select clr.xfnRegexIsValidUSZip(N'12345'), 
+	clr.xfnRegexIsValidUSZip(N'12345-6789'),
+	clr.xfnRegexIsValidUSZip(N'12345-678a'),
+	clr.xfnRegexIsValidUSZip(null)
+</value>
+  </data>
+  <data name="RegexMatchTests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+select clr.xfnRegexMatch(N'123-45-6789', N'^\d{3}-\d{2}-\d{4}$' ),
+	clr.xfnRegexMatch(NULL, N'^\d{3}-\d{2}-\d{4}$' ),
+	clr.xfnRegexMatch('clr.xfnRegexMatch', N'xfn(?i-:reg|format).*'),
+	clr.xfnRegexMatch('clr.xfnFoo', N'xfn(?i-:reg|format).*') </value>
+  </data>
+  <metadata name="RegexMatchesChecksum.Configuration" xml:space="preserve">
+    <value>Press to configure</value>
+  </metadata>
+  <data name="RegexMatchesTests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+
+declare @text nvarchar(max) = N'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum laoreet, enim sed venenatis elementum, velit neque fermentum nulla, sit amet eleifend libero sapien eu erat. Etiam blandit ullamcorper justo ultrices ullamcorper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla convallis tortor id varius mattis. Phasellus aliquam feugiat lectus et maximus. Suspendisse non urna erat. Suspendisse potenti. Ut rutrum tortor non neque suscipit commodo. Mauris scelerisque nulla eu pharetra tempor. Suspendisse et consectetur felis. Donec tincidunt, purus ut volutpat placerat, lacus erat accumsan nibh, non fermentum dolor ante in sapien. Duis eget orci ligula. Sed eu velit odio. Aliquam eu erat est. Sed interdum augue vel elit molestie, at euismod dui pharetra. Cras hendrerit rhoncus congue. Curabitur vel commodo nisl, ac egestas urna. Quisque quis ante quis turpis posuere finibus vitae in magna. Nulla rhoncus, purus ut vehicula scelerisque, velit nulla pharetra ante, ut blandit erat sem in odio. Ut nec nisl laoreet, finibus nulla non, consectetur velit. Nam mollis turpis vel congue tincidunt. Proin elementum luctus sapien, vitae sodales felis. Sed maximus, ligula a condimentum congue, metus nulla imperdiet dui, vel facilisis justo tellus vel elit. Nulla elit risus, maximus nec mollis vitae, aliquam nec metus.'
+
+select count(distinct [Text]) from clr.xfnRegexMatches( @text, '\w+' )
+select * from clr.xfnRegexMatches( @text, '(are)|(et)|(per)' )</value>
+  </data>
+  <data name="RegexGroupTests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+
+
+
+SELECT clr.xfnRegexGroup(N'Lorem ipsum1 dolor sit amet, consectetur adipiscing elit. Lorem ipsum2 dolor sit amet, consectetur adipiscing elit. Lorem3 ipsum dolor sit amet, consectetur adipiscing elit. ', '(?&lt;Foo&gt;ipsum\d?)', 'Foo')
+	,clr.xfnRegexGroup(N'1234567,Sir Mix a Lot,A,M', '^(?&lt;CustomerId&gt;\d{7}),(?&lt;Name&gt;[^,]*),(?&lt;Type&gt;[A-Z]),(?&lt;Gender&gt;M|F)$', 'Name')
+</value>
+  </data>
+  <metadata name="RegexGroupsChecksum.Configuration" xml:space="preserve">
+    <value>Press to configure</value>
+  </metadata>
+  <data name="RegexGroupsTest_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+
+	DECLARE @listpattern nvarchar(500) = N'(?&lt;CustomerId&gt;\d{7}),(?&lt;Name&gt;[^,]*),(?&lt;Type&gt;[A-Za-z]),(?&lt;Gender&gt;[Mm]|[Ff])\r?\n'
+	   ,@list varchar(1000) = 
+			'1234567,Sir Mix a Lot,A,M
+			9876453,Flavor Flave,B,M
+			8647530,LL Cool J,C,M
+			4561237,Run DMC,D,M
+			2589631,Salt n Pepa,D,F
+			'
+	--SELECT * FROM clr.xfnRegexGroups( @list, @listpattern ) regex
+	SELECT
+	   --f.[0],
+	   f.[CustomerId],
+	   f.[Name],
+	   f.[Type],
+	   f.[Gender]
+	from clr.xfnRegexGroups( @list, @listpattern ) regex
+	pivot
+	(
+	   max([Text])
+	   for [Group]
+	   in ([0], [CustomerId], [Name], [Type], [Gender] )
+	) as f</value>
+  </data>
+  <data name="RegexReplaceCaseInsensitive.ExpectedValue" xml:space="preserve">
+    <value>Lorem ipsum dolor sit am *MY NEW TEXT* , consect *MY NEW TEXT* ur adipiscing elit. Vestibulum laore *MY NEW TEXT* , enim sed venenatis elementum, velit neque fermentum nulla, sit am *MY NEW TEXT*  eleifend libero sapien eu erat.  *MY NEW TEXT* iam blandit ullamcor *MY NEW TEXT*  justo ultrices ullamcor *MY NEW TEXT* . Class aptent taciti sociosqu ad litora torquent  *MY NEW TEXT*  conubia nostra,  *MY NEW TEXT*  inceptos himenaeos. Nulla convallis tortor id varius mattis. Phasellus aliquam feugiat lectus  *MY NEW TEXT*  maximus. Suspendisse non urna erat. Suspendisse potenti. Ut rutrum tortor non neque suscipit commodo. Mauris scelerisque nulla eu ph *MY NEW TEXT* tra tempor. Suspendisse  *MY NEW TEXT*  consect *MY NEW TEXT* ur felis. Donec tincidunt, purus ut volutpat placerat, lacus erat accumsan nibh, non fermentum dolor ante in sapien. Duis eg *MY NEW TEXT*  orci ligula. Sed eu velit odio. Aliquam eu erat est. Sed interdum augue vel elit molestie, at euismod dui ph *MY NEW TEXT* tra. Cras hendrerit rhoncus congue. Curabitur vel commodo nisl, ac egestas urna. Quisque quis ante quis turpis posuere finibus vitae in magna. Nulla rhoncus, purus ut vehicula scelerisque, velit nulla ph *MY NEW TEXT* tra ante, ut blandit erat sem in odio. Ut nec nisl laore *MY NEW TEXT* , finibus nulla non, consect *MY NEW TEXT* ur velit. Nam mollis turpis vel congue tincidunt. Proin elementum luctus sapien, vitae sodales felis. Sed maximus, ligula a condimentum congue, m *MY NEW TEXT* us nulla im *MY NEW TEXT* di *MY NEW TEXT*  dui, vel facilisis justo tellus vel elit. Nulla elit risus, maximus nec mollis vitae, aliquam nec m *MY NEW TEXT* us.</value>
+  </data>
+  <data name="RegexReplaceCaseSensitive.ExpectedValue" xml:space="preserve">
+    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum laoreet, enim sed venenatis elementum, velit neque fermentum nulla, sit amet eleifend libero sapien eu erat. Etiam blandit ullamcorper justo ultrices ullamcorper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla convallis tortor id varius mattis. Phasellus aliquam feugiat lectus et maximus. Suspendisse non urna erat. Suspendisse potenti. Ut rutrum tortor non neque suscipit commodo. Mauris scelerisque nulla eu pharetra tempor. Suspendisse et consectetur felis. Donec tincidunt, purus ut volutpat placerat, lacus erat accumsan nibh, non fermentum dolor ante in sapien. Duis eget orci ligula. Sed eu velit odio. Aliquam eu erat est. Sed interdum augue vel elit molestie, at euismod dui pharetra. Cras hendrerit rhoncus congue. Curabitur vel commodo nisl, ac egestas urna. Quisque quis ante quis turpis posuere finibus vitae in magna. Nulla rhoncus, purus ut vehicula scelerisque, velit nulla pharetra ante, ut blandit erat sem in odio. Ut nec nisl laoreet, finibus nulla non, consectetur velit. Nam mollis turpis vel congue tincidunt. Proin elementum luctus sapien, vitae sodales felis. Sed maximus, ligula a condimentum congue, metus nulla imperdiet dui, vel facilisis justo tellus vel elit. Nulla elit risus, maximus nec mollis vitae, aliquam nec metus.</value>
+  </data>
+  <data name="RegexReplaceTests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+declare @text nvarchar(max) = N'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum laoreet, enim sed venenatis elementum, velit neque fermentum nulla, sit amet eleifend libero sapien eu erat. Etiam blandit ullamcorper justo ultrices ullamcorper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla convallis tortor id varius mattis. Phasellus aliquam feugiat lectus et maximus. Suspendisse non urna erat. Suspendisse potenti. Ut rutrum tortor non neque suscipit commodo. Mauris scelerisque nulla eu pharetra tempor. Suspendisse et consectetur felis. Donec tincidunt, purus ut volutpat placerat, lacus erat accumsan nibh, non fermentum dolor ante in sapien. Duis eget orci ligula. Sed eu velit odio. Aliquam eu erat est. Sed interdum augue vel elit molestie, at euismod dui pharetra. Cras hendrerit rhoncus congue. Curabitur vel commodo nisl, ac egestas urna. Quisque quis ante quis turpis posuere finibus vitae in magna. Nulla rhoncus, purus ut vehicula scelerisque, velit nulla pharetra ante, ut blandit erat sem in odio. Ut nec nisl laoreet, finibus nulla non, consectetur velit. Nam mollis turpis vel congue tincidunt. Proin elementum luctus sapien, vitae sodales felis. Sed maximus, ligula a condimentum congue, metus nulla imperdiet dui, vel facilisis justo tellus vel elit. Nulla elit risus, maximus nec mollis vitae, aliquam nec metus.'
+
+select clr.xfnRegexReplace(@text, '(?i)(ARE)|(ET)|(PER)', ' *MY NEW TEXT* ' ) -- case insensitive regex
+select clr.xfnRegexReplace(@text, '(ARE)|(ET)|(PER)', '*MY NEW TEXT*' ) -- case sensitive regex, hence no replacments made</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>

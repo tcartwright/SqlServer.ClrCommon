@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>SqlServer.ClrCommon</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{80f6878b-b3c3-4e1d-b535-892ca26c9eb4}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>SqlServer.ClrCommon</RootNamespace>
+    <AssemblyName>SqlServer.ClrCommon</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion Condition=" '$(Configuration)' == 'Debug' OR '$(Configuration)' == 'Release' ">v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition=" '$(Configuration)' == 'Debug4.5' OR '$(Configuration)' == 'Release4.5' ">v4.5.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <TargetFrameworkProfile />
+    <DacVersion>0.1.0.0</DacVersion>
+    <PermissionSet>SAFE</PermissionSet>
+    <Trustworthy>True</Trustworthy>
+    <DefaultSchema>clr</DefaultSchema>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <GenerateCreateScript>False</GenerateCreateScript>
+    <DacApplicationName>SqlServer.ClrCommon</DacApplicationName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\SqlServer.ClrCommon.xml</DocumentationFile>
+    <DefineConstants>ALLOW_GZIP</DefineConstants>
+    <!--<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>-->
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <SqlTargetName>SqlServer</SqlTargetName>
+    <DefineConstants>ALLOW_GZIP</DefineConstants>
+    <!--<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>-->
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug4.5|AnyCPU' ">
+    <OutputPath>bin\Debug4.5\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DOTNET45;ALLOW_GZIP</DefineConstants>
+    <SqlTargetName>SqlServer</SqlTargetName>
+    <!--<TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>-->
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release4.5|AnyCPU' ">
+    <OutputPath>bin\Release4.5\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\SqlServer.ClrCommon.xml</DocumentationFile>
+    <DefineConstants>DOTNET45;ALLOW_GZIP</DefineConstants>
+    <!--<TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>-->
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Aggregates" />
+    <Folder Include="Help" />
+    <Folder Include="Help\CustomHelp" />
+    <Folder Include="cmn\" />
+    <Folder Include="cmn\Tables\" />
+    <Folder Include="cmn\Functions\" />
+    <Folder Include="Security\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Strings.cs" />
+    <Compile Include="Math.cs" />
+    <Compile Include="Dates.cs" />
+    <Compile Include="Regex.cs" />
+    <Compile Include="Misc.cs" />
+    <Compile Include="Aggregates\Concat.cs" />
+    <Compile Include="Aggregates\Covariance.cs" />
+    <Compile Include="Aggregates\Median.cs" />
+    <Compile Include="Aggregates\Percentile.cs" />
+    <Compile Include="Aggregates\WeightedAvg.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Path.cs" />
+    <Compile Include="Split.cs" />
+    <Compile Include="StringFormat.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestScript.sql" />
+    <None Include="Help\SqlServer.ClrCommon.shfbproj" />
+    <None Include="Readme - How To Target Multiple .Net Frameworks.txt" />
+    <None Include="Readme - How to generate the Create Assembly script.txt" />
+    <None Include="Readme - How to DEBUG.txt" />
+    <None Include="SqlServer.ClrCommon.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DebugScript.sql" />
+    <Build Include="cmn\Tables\Numbers.sql" />
+    <Build Include="cmn\Tables\DimDate.sql" />
+    <Build Include="cmn\Functions\F_TABLE_DATE.sql">
+      <AnsiNulls>Off</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+    <Build Include="Security\cmn.sql" />
+    <Build Include="Security\clr.sql" />
+  </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

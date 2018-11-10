@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2018
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SqlServer.ClrCommon", "SqlServer.ClrCommon\SqlServer.ClrCommon.sqlproj", "{80F6878B-B3C3-4E1D-B535-892CA26C9EB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlServer.ClrCommon.Tests", "SqlServer.ClrCommon.Tests\SqlServer.ClrCommon.Tests.csproj", "{288D7306-CBBE-4A9F-AE25-A3DD9FBFA494}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B1222B19-626C-4B41-955D-5F6147A3B9FE}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		db.publish.xml = db.publish.xml
+		Drop CLR Assembly.sql = Drop CLR Assembly.sql
+		Readme - How to DEBUG.txt = Readme - How to DEBUG.txt
+		Readme - How to generate the Create Assembly script.txt = Readme - How to generate the Create Assembly script.txt
+		ReadMe - How to run tests.txt = ReadMe - How to run tests.txt
+		Readme - How To Target Multiple .Net Frameworks.txt = Readme - How To Target Multiple .Net Frameworks.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug4.5|Any CPU = Debug4.5|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Release4.5|Any CPU = Release4.5|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80F6878B-B3C3-4E1D-B535-892CA26C9EB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80F6878B-B3C3-4E1D-B535-892CA26C9EB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80F6878B-B3C3-4E1D-B535-892CA26C9EB4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{80F6878B-B3C3-4E1D-B535-892CA26C9EB4}.Debug4.5|Any CPU.ActiveCfg = Debug4.5|Any CPU
+		{80F6878B-B3C3-4E1D-B535-892CA26C9EB4}.Debug4.5|Any CPU.Build.0 = Debug4.5|Any CPU
+		{80F6878B-B3C3-4E1D-B535-892CA26C9EB4}.Debug4.5|Any CPU.Deploy.0 = Debug4.5|Any CPU
+		{80F6878B-B3C3-4E1D-B535-892CA26C9EB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80F6878B-B3C3-4E1D-B535-892CA26C9EB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80F6878B-B3C3-4E1D-B535-892CA26C9EB4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{80F6878B-B3C3-4E1D-B535-892CA26C9EB4}.Release4.5|Any CPU.ActiveCfg = Release4.5|Any CPU
+		{80F6878B-B3C3-4E1D-B535-892CA26C9EB4}.Release4.5|Any CPU.Build.0 = Release4.5|Any CPU
+		{80F6878B-B3C3-4E1D-B535-892CA26C9EB4}.Release4.5|Any CPU.Deploy.0 = Release4.5|Any CPU
+		{288D7306-CBBE-4A9F-AE25-A3DD9FBFA494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{288D7306-CBBE-4A9F-AE25-A3DD9FBFA494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{288D7306-CBBE-4A9F-AE25-A3DD9FBFA494}.Debug4.5|Any CPU.ActiveCfg = Debug|Any CPU
+		{288D7306-CBBE-4A9F-AE25-A3DD9FBFA494}.Debug4.5|Any CPU.Build.0 = Debug|Any CPU
+		{288D7306-CBBE-4A9F-AE25-A3DD9FBFA494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{288D7306-CBBE-4A9F-AE25-A3DD9FBFA494}.Release|Any CPU.Build.0 = Release|Any CPU
+		{288D7306-CBBE-4A9F-AE25-A3DD9FBFA494}.Release4.5|Any CPU.ActiveCfg = Release|Any CPU
+		{288D7306-CBBE-4A9F-AE25-A3DD9FBFA494}.Release4.5|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94F2A7F4-BF59-41DB-B2BB-D76BCE698997}
+	EndGlobalSection
+EndGlobal

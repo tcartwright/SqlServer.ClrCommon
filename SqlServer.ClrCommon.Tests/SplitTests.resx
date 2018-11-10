@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="SplitStringsDataCheckSum.Configuration" xml:space="preserve">
+    <value>Press to configure</value>
+  </metadata>
+  <data name="SplitStringTests_TestAction.SqlScript" xml:space="preserve">
+    <value>
+
+DECLARE @lorem varchar(max) = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum laoreet, enim sed venenatis elementum, velit neque fermentum nulla, sit amet eleifend libero sapien eu erat.'
+DECLARE @lorem100 varchar(max) = replicate(@lorem, 100)
+
+SELECT xs.RowId, xs.[Value] FROM clr.xfnSplit(@lorem, ' ', 0) xs
+
+SELECT xs.RowId, xs.[Value] FROM clr.xfnSplit(@lorem100, ' ', 0) xs
+
+
+</value>
+  </data>
+  <metadata name="SplitIntsChecksum.Configuration" xml:space="preserve">
+    <value>Press to configure</value>
+  </metadata>
+  <data name="SplitIntsTests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+DECLARE @ints varchar(max) = '9688982,6582051,6330859,5524195,8372639,3598278,9567573,1481864,8683710,8959527,8304095,5787450,6217040,1605074,3937742,9350618,9954309,5346201,2440129,591571,8762601,2342302,8816981,1103668,4181865,205997,9601946,8807403,8742753,5393774,6118006,6633819,6381990,2892591,9825607,453581,591260,5930166,9679482,2686713,3310351,5890303,7186532,8273403,1289486,7293082,2823982,9234344,8736459,6114727,4677382,2254478,1902115,7253245,3936000,8912923,7692283,4911747,591316,5827922,61383,7699168,2144630,9464465,9407929,9287336,2255158,9531665,6855108,4437613,5366604,4550249,3422968,3047623,1015899,520099,1920894'
+DECLARE @ints100 varchar(max) = replicate(@ints, 100)
+
+SELECT xs.RowId, xs.[Value] FROM clr.xfnSplitInts(@ints, ',', 0) xs
+
+SELECT xs.RowId, xs.[Value] FROM clr.xfnSplitInts(@ints100, ',', 0) xs</value>
+  </data>
+  <metadata name="SplitBigIntsChecksum.Configuration" xml:space="preserve">
+    <value>Press to configure</value>
+  </metadata>
+  <data name="SplitBigIntsTests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+
+DECLARE @bigints varchar(max) = '62844761503424,72394117358427,32011638416242,14978476014566,42522905323296,5755711271138,3165529270785,10628462531014,82835691202058,34461234196249,89557755158427,34912485415217,87582798708606,37237618423063,92098261094153,65856315934600,53612054043303,69628534849367,46356353102997,538043462546,25190447459358,79208277205634,4265229970851,60407168606098,2396909120638,45396155288723,80493137532638,86410619944980,11581313148996,40677721886653,97226779025516,1281345099102,7029244381867,39396773688429,45792437758663,2446492178440,88831733262369,22852679247085,5318080780134,5628138506252,72332715851081,40033704310673,4578727838228,9612102480223,81044916049466,92235333808470,93196699253351,93391001950562,9162071944694,77879832775576,73563816388643,651688292794,65326523441053,39590289573071,83378833030511,41253726733456,11500481286221,89613035434259,41403291625750,28586435979787,54068608147819,20458349613206,57419317950374,81269279012255,87989595347740,16042183026461,8660783364249,96294037082032,60967899197354,69746698021783,34401772886957,21306582358743,22587221410528,64884475144038,3973836370937,286360739202,74724744472993,59041819887967,60420433379510,13067308491489,90526328961062,65556099364744,2227376803123,5078597149962,6976003509407,31201611116874,7919123293982,58022807610352'
+DECLARE @bigints100 varchar(max) = replicate(@bigints, 100)
+
+SELECT xs.RowId, xs.[Value] FROM clr.xfnSplitBigInts(@bigints, ',', 0) xs
+
+SELECT xs.RowId, xs.[Value] FROM clr.xfnSplitBigInts(@bigints100, ',', 0) xs</value>
+  </data>
+  <metadata name="SplitFloatsChecksum.Configuration" xml:space="preserve">
+    <value>Press to configure</value>
+  </metadata>
+  <data name="SplitFloatsTests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+DECLARE @Floats varchar(max) = '6000193.6465576,8304048.8160784,2202454.2474793,726146.3641676,2198445.3170504,6612013.2746950,1157881.8086300,6348182.4800016,1381093.9544427,50392.3929338,7626734.9584734,6202527.3310596,1213731.5828209,2405266.8670615,4326573.2362469,2089226.1510931,4263172.2083010,9861606.9417005,6220342.2594647,4746485.5858519,9473429.923312,152049.4889996,6390020.7296596,4836712.9364769,6673850.6025459,9168041.8381286,2992828.3288824,226972.9861198,1535667.7673,9033214.5629859,5354285.6689232,8313888.6358318,7397337.6388711,2668702.3344388,439572.8275389,6018882.5956512,6170532.59640,8435523.8638489,5760700.4421982,3064051.6245693,4675106.8096337,3030075.1268556,8894494.6698471,3274948.2735515,3106730.365753,2206011.2134638,6862525.3437519,7157732.2189838,7214780.4326142,9502902.5164651,406706.9977495,6384570.9329688,5886950.185792,83399.7708358,5381127.8290433,166956.3798452,9567134.9059585,1706726.2876343,1398111.1292799,682420.1002681,297412.1068785,9619897.8578498,3406564.9454307,7320233.6356010,9199692.540562,3454898.2655360,677636.4461997,4688991.2934573,5443164.7101445,2435058.2068035,4574033.4111831,3391896.5531675,5513183.8025410,195977.7451620,6580017.9591588,2538839.8127140,3495627.4979106,7479281.2872539,8621055.2461453,1719745.9745298,6401777.3776407,4120816.644250,5035108.7740682,7411699.7435583,9009527.8551653,6943266.4289456,520034.3477468,2919252.6010508,1207123.6699240,4683288.159989,9781057.3332352,6445806.7643543,3603226.4305573,9349136.2921606,9916730.8677241,1665741.7845957,3364848.88768,8947217.946203,6937192.5111374'
+DECLARE @Floats100 varchar(max) = replicate(@Floats, 100)
+
+SELECT xs.RowId, xs.[Value] FROM clr.xfnSplitFloats(@Floats, ',', 0) xs
+
+SELECT xs.RowId, xs.[Value] FROM clr.xfnSplitFloats(@Floats100, ',', 0) xs</value>
+  </data>
+  <data name="SplitStringEmptyTests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+
+DECLARE @lorem varchar(max) = 'Data1,,Data2'
+
+
+SELECT xs.RowId, xs.[Value] FROM clr.xfnSplit(@lorem, ',', 0) xs
+
+SELECT xs.RowId, xs.[Value] FROM clr.xfnSplit(@lorem, ',', 1) xs
+
+</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>

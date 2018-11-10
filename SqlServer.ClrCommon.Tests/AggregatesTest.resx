@@ -1,0 +1,793 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ConcatChecksum.Configuration" xml:space="preserve">
+    <value>Press to configure</value>
+  </metadata>
+  <data name="AggregatesConcatTests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+
+
+	DECLARE @tbl TABLE (
+		RowId int NOT NULL IDENTITY(1, 1),
+		Name varchar(50),
+		StateProvince char(2)
+	)
+
+	INSERT INTO @tbl
+	VALUES
+	('Foo','TX') 
+	,('Foo','CA') 
+	,('Foo','WA') 
+	,('Bar','OK') 
+	,('Bar','MI') 
+
+	SELECT Name, clr.xagConcat(t.StateProvince, ',') , clr.xagConcat(t.RowId, ',')  
+	FROM @tbl t
+	GROUP BY t.Name</value>
+  </data>
+  <data name="AggregatesMedianTests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+;WITH Tally (n) AS
+(
+	SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL))
+	FROM (	 VALUES(0),(0),(0),(0),(0),(0),(0),(0),(0),(0)) a(n)		--10 rows
+	CROSS JOIN (VALUES(0),(0),(0),(0),(0),(0),(0),(0),(0),(0)) b(n)		--100
+	CROSS JOIN (VALUES(0),(0),(0),(0),(0)) c(n)							--500
+)
+
+
+SELECT clr.xagMedian(t.n)
+FROM tally t 
+
+
+SELECT t.LastName, clr.xagMedian(t.Age)
+FROM dbo.AggregatesTest_TestData t
+GROUP BY t.LastName
+
+</value>
+  </data>
+  <data name="AggregatesPercentileTests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+-- THIS TEST NEEDS WORK. NOT REALLY VALID.
+
+-- find all records with ages in the 80 percentile
+SELECT t.LastName, clr.xagPercentile(t.Age, 80)
+FROM dbo.AggregatesTest_TestData t
+GROUP BY t.LastName
+ORDER BY t.LastName</value>
+  </data>
+  <data name="AggregatesWeightedAvgTests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+
+DECLARE @tbl TABLE (ItemValue int, ItemWeight int);
+
+INSERT INTO @tbl 
+VALUES(1, 4), (6, 1);
+
+SELECT * FROM  @tbl t
+
+SELECT [WeightedAvg] = clr.xagWeightedAvg(t.ItemValue, t.ItemWeight), 
+    [Average] = AVG(t.ItemValue) 
+FROM @tbl t;</value>
+  </data>
+  <data name="testInitializeAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here that you want to run before 
+each test method (unit test) in this test class is run.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+SET NOCOUNT ON
+
+IF OBJECT_ID('dbo.AggregatesTest_TestData') IS NOT NULL
+	DROP TABLE dbo.AggregatesTest_TestData
+
+CREATE TABLE dbo.AggregatesTest_TestData (
+	RowId int NOT NULL IDENTITY PRIMARY KEY,
+	FirstName varchar(255) NOT NULL,
+	LastName varchar(255) NOT NULL,
+	[Age] int NOT NULL 
+)
+
+INSERT INTO dbo.AggregatesTest_TestData VALUES
+	('Hunter','Ramirez','58'),
+	('Mason','Evans','62'),
+	('Caden','Clark','47'),
+	('Andrew','Clark','21'),
+	('Owen','Adams','33'),
+	('Dominic','Martin','49'),
+	('Jackson','Nelson','29'),
+	('Nathan','Perez','28'),
+	('Jayden','Williams','33'),
+	('Elijah','Miller','25'),
+	('Connor','Thomas','59'),
+	('Oliver','Phillips','22'),
+	('William','Thompson','26'),
+	('Aiden','Ramirez','18'),
+	('Dominic','Young','26'),
+	('David','Scott','45'),
+	('Connor','Phillips','37'),
+	('Caleb','Carter','58'),
+	('Caleb','Robinson','30'),
+	('Mason','Davis','28'),
+	('James','Green','21'),
+	('Jayden','Wilson','24'),
+	('Wyatt','Walker','24'),
+	('Caden','Gonzalez','38'),
+	('Dominic','Thompson','29'),
+	('Caden','King','58'),
+	('Isaac','Perez','54'),
+	('Carter','Phillips','56'),
+	('Ethan','Sanchez','37'),
+	('Lucas','Martin','19'),
+	('James','Harris','19'),
+	('Henry','Martin','34'),
+	('Gavin','Gonzalez','27'),
+	('Nathan','Mitchell','43'),
+	('Caden','Phillips','40'),
+	('Alexander','Davis','24'),
+	('Luke','Adams','22'),
+	('Brayden','Taylor','34'),
+	('Ethan','Miller','49'),
+	('Isaac','Phillips','20'),
+	('Gavin','Ramirez','60'),
+	('Samuel','Phillips','33'),
+	('Carter','Martin','31'),
+	('Ryan','Johnson','57'),
+	('Samuel','Adams','39'),
+	('David','Sanchez','63'),
+	('Liam','Robinson','42'),
+	('Dylan','Jones','36'),
+	('Jayce','Smith','50'),
+	('Gabriel','Lee','40'),
+	('Benjamin','Wright','27'),
+	('Evan','Lewis','32'),
+	('Henry','Hernandez','25'),
+	('James','Garcia','28'),
+	('Hunter','Hall','60'),
+	('Benjamin','Smith','27'),
+	('David','Martin','49'),
+	('Dominic','Thomas','19'),
+	('David','Nelson','23'),
+	('Nicholas','Thomas','64'),
+	('Michael','Lee','21'),
+	('Landon','Lopez','60'),
+	('Liam','Wright','27'),
+	('Nathan','Ramirez','55'),
+	('Noah','White','31'),
+	('Aiden','Thomas','33'),
+	('Ethan','Harris','31'),
+	('Jack','Baker','24'),
+	('Gabriel','Williams','60'),
+	('William','Anderson','60'),
+	('Liam','Nelson','24'),
+	('Oliver','Lee','37'),
+	('Isaac','Harris','44'),
+	('Lucas','Evans','19'),
+	('Luke','Brown','23'),
+	('Mason','Davis','42'),
+	('Jackson','Taylor','64'),
+	('Caleb','Rodriguez','28'),
+	('Connor','Young','26'),
+	('Oliver','Martinez','42'),
+	('Jayce','Rodriguez','35'),
+	('Grayson','Martinez','36'),
+	('Ryan','Green','42'),
+	('Evan','Gonzalez','48'),
+	('Owen','Davis','62'),
+	('Gabriel','Hernandez','34'),
+	('Connor','Taylor','62'),
+	('Oliver','Jones','51'),
+	('Joshua','Lewis','19'),
+	('Isaac','Thompson','56'),
+	('Daniel','Thompson','42'),
+	('Eli','Robinson','20'),
+	('Michael','Thompson','40'),
+	('Henry','Taylor','38'),
+	('James','Moore','40'),
+	('Grayson','Thomas','27'),
+	('William','Campbell','20'),
+	('Connor','King','52'),
+	('Caleb','Carter','27'),
+	('Benjamin','Adams','52'),
+	('Liam','Gonzalez','50'),
+	('Elijah','Walker','41'),
+	('Ryan','King','41'),
+	('Dominic','Hill','31'),
+	('Michael','Miller','59'),
+	('Alexander','Smith','28'),
+	('Andrew','Wilson','25'),
+	('Samuel','Robinson','33'),
+	('Oliver','Taylor','37'),
+	('Eli','Wilson','20'),
+	('Jacob','Johnson','19'),
+	('Nathan','Robinson','23'),
+	('David','Hernandez','59'),
+	('Landon','Ramirez','59'),
+	('Samuel','Lopez','46'),
+	('Sebastian','Phillips','58'),
+	('Lucas','Martinez','47'),
+	('Alexander','Johnson','41'),
+	('Gabriel','Thompson','40'),
+	('Gabriel','Adams','49'),
+	('Owen','Jackson','45'),
+	('Nicholas','Wilson','58'),
+	('Dominic','Thompson','49'),
+	('Grayson','Mitchell','21'),
+	('Aiden','Hill','61'),
+	('Landon','Johnson','50'),
+	('Liam','Green','33'),
+	('David','Lee','46'),
+	('Jayce','Evans','36'),
+	('Brayden','Williams','49'),
+	('Brayden','Martin','61'),
+	('Jack','Green','28'),
+	('William','King','21'),
+	('Nicholas','Martin','54'),
+	('Eli','Evans','57'),
+	('David','Gonzalez','22'),
+	('Matthew','Robinson','21'),
+	('Dominic','Martinez','58'),
+	('Jayce','Harris','39'),
+	('Ryan','Hill','60'),
+	('Liam','Lopez','50'),
+	('William','Jackson','23'),
+	('Wyatt','Taylor','36'),
+	('Nicholas','Williams','51'),
+	('Daniel','Lopez','27'),
+	('Daniel','Harris','49'),
+	('Grayson','Sanchez','54'),
+	('Ethan','Baker','20'),
+	('Jacob','Green','26'),
+	('Logan','Thompson','54'),
+	('Gabriel','Hernandez','63'),
+	('Ethan','Johnson','48'),
+	('Landon','Ramirez','25'),
+	('Evan','Allen','40'),
+	('Nathan','Mitchell','52'),
+	('Henry','Sanchez','46'),
+	('Andrew','Green','38'),
+	('Isaac','King','57'),
+	('Samuel','Mitchell','53'),
+	('Lucas','Lewis','53'),
+	('Ethan','Thomas','29'),
+	('Alexander','Gonzalez','42'),
+	('James','Jackson','28'),
+	('Ethan','Garcia','33'),
+	('Isaac','Lee','22'),
+	('Liam','Rodriguez','45'),
+	('Hunter','King','44'),
+	('Isaac','Harris','32'),
+	('Benjamin','Perez','39'),
+	('Noah','Sanchez','37'),
+	('Michael','Martinez','60'),
+	('David','Martinez','28'),
+	('Evan','Roberts','62'),
+	('Andrew','Nelson','28'),
+	('Elijah','White','64'),
+	('Grayson','Young','40'),
+	('Aiden','Davis','46'),
+	('Nicholas','Gonzalez','35'),
+	('Jackson','Ramirez','53'),
+	('Benjamin','Williams','49'),
+	('Michael','King','40'),
+	('Lucas','Lewis','48'),
+	('Caleb','Walker','39'),
+	('Connor','Ramirez','58'),
+	('Connor','Hernandez','42'),
+	('Jayden','Nelson','19'),
+	('Ryan','Thompson','30'),
+	('Elijah','Lee','49'),
+	('Nathan','Rodriguez','46'),
+	('Cameron','Moore','23'),
+	('Henry','Thomas','59'),
+	('Owen','Lopez','57'),
+	('Brayden','Hernandez','48'),
+	('Cameron','Williams','25'),
+	('Sebastian','Smith','32'),
+	('Sebastian','Scott','45'),
+	('Aiden','Hill','34'),
+	('Jack','Sanchez','43'),
+	('Benjamin','Robinson','51'),
+	('Matthew','Scott','31'),
+	('Liam','Adams','43'),
+	('Luke','Wright','21'),
+	('Isaac','Garcia','19'),
+	('Ryan','Adams','45'),
+	('Carter','Moore','38'),
+	('Daniel','Rodriguez','47'),
+	('Jack','Ramirez','47'),
+	('Elijah','Hill','59'),
+	('Jayce','Mitchell','43'),
+	('Oliver','Campbell','33'),
+	('Gabriel','Thomas','29'),
+	('Liam','Hernandez','20'),
+	('Alexander','Nelson','59'),
+	('Oliver','Davis','36'),
+	('Lucas','Jones','25'),
+	('Aiden','Martinez','62'),
+	('Mason','Miller','40'),
+	('Dylan','Smith','51'),
+	('Ryan','Lopez','45'),
+	('Oliver','Evans','50'),
+	('Luke','Green','26'),
+	('Daniel','Wilson','23'),
+	('Eli','Martinez','25'),
+	('Logan','Hall','31'),
+	('James','Garcia','55'),
+	('Logan','Robinson','45'),
+	('Wyatt','Young','41'),
+	('Nicholas','Jones','37'),
+	('Noah','Hill','59'),
+	('Eli','Moore','41'),
+	('Jayden','Walker','31'),
+	('Lucas','Davis','63'),
+	('Aiden','Gonzalez','23'),
+	('Luke','Hill','43'),
+	('Jacob','Hall','48'),
+	('Evan','Young','30'),
+	('Matthew','Ramirez','27'),
+	('Sebastian','Perez','43'),
+	('Dominic','Smith','36'),
+	('Landon','Wilson','60'),
+	('Logan','Ramirez','26'),
+	('Ethan','Adams','20'),
+	('Elijah','Evans','31'),
+	('Joshua','Hall','41'),
+	('William','Hernandez','52'),
+	('Cameron','Davis','50'),
+	('Elijah','Scott','43'),
+	('Andrew','Robinson','45'),
+	('Liam','White','25'),
+	('Logan','Green','41'),
+	('Hunter','Baker','56'),
+	('Andrew','Wilson','52'),
+	('Ryan','Garcia','48'),
+	('James','Wright','47'),
+	('Sebastian','Turner','55'),
+	('Logan','Jones','44'),
+	('Andrew','Walker','44'),
+	('Caleb','Adams','60'),
+	('Dominic','Ramirez','29'),
+	('Landon','Harris','52'),
+	('Matthew','Johnson','42'),
+	('Mason','Williams','18'),
+	('Nicholas','Gonzalez','36'),
+	('Jayce','Moore','36'),
+	('Landon','Robinson','63'),
+	('Oliver','Young','22'),
+	('Jayce','Rodriguez','57'),
+	('Connor','Campbell','61'),
+	('Alexander','Hill','52'),
+	('Eli','Baker','33'),
+	('Caleb','Harris','37'),
+	('Hunter','Thompson','42'),
+	('Jack','Mitchell','20'),
+	('Evan','Ramirez','62'),
+	('Jayce','Thompson','47'),
+	('Ryan','Adams','30'),
+	('Ethan','Lopez','59'),
+	('Landon','Thompson','41'),
+	('Noah','Mitchell','48'),
+	('Ethan','Moore','63'),
+	('Oliver','Baker','19'),
+	('Liam','Thomas','20'),
+	('Gabriel','Nelson','33'),
+	('Alexander','Rodriguez','23'),
+	('Wyatt','Ramirez','50'),
+	('Brayden','Moore','21'),
+	('Grayson','Garcia','54'),
+	('Logan','Martinez','41'),
+	('Mason','Phillips','21'),
+	('Carter','Thomas','41'),
+	('Benjamin','Wright','59'),
+	('Joshua','Lee','61'),
+	('Caleb','Lopez','49'),
+	('Liam','Jackson','49'),
+	('Caden','Harris','18'),
+	('Jackson','Adams','41'),
+	('Carter','Robinson','57'),
+	('Alexander','Rodriguez','32'),
+	('Joshua','Johnson','63'),
+	('Grayson','Johnson','31'),
+	('Connor','Hill','44'),
+	('Isaac','Phillips','57'),
+	('Joshua','Robinson','56'),
+	('Nathan','Evans','32'),
+	('Brayden','Perez','59'),
+	('Mason','Davis','46'),
+	('Caden','Williams','32'),
+	('Jayce','Lee','22'),
+	('Ethan','Hall','48'),
+	('Mason','Martin','45'),
+	('Dylan','Anderson','62'),
+	('Noah','Harris','36'),
+	('Sebastian','Sanchez','32'),
+	('Gabriel','Baker','56'),
+	('Owen','Green','47'),
+	('William','Carter','21'),
+	('Michael','Brown','21'),
+	('Cameron','Lopez','58'),
+	('Lucas','Sanchez','54'),
+	('Sebastian','Campbell','57'),
+	('Henry','Clark','58'),
+	('Dylan','Young','54'),
+	('Mason','Hall','64'),
+	('Elijah','Green','39'),
+	('Jayden','Nelson','45'),
+	('Elijah','Ramirez','18'),
+	('Grayson','Lopez','36'),
+	('Matthew','White','59'),
+	('Landon','Sanchez','43'),
+	('Isaac','Gonzalez','63'),
+	('Connor','Campbell','42'),
+	('Brayden','Scott','49'),
+	('Caden','Brown','53'),
+	('Liam','Brown','34'),
+	('Sebastian','Clark','63'),
+	('Gabriel','Johnson','63'),
+	('Ryan','Wilson','57'),
+	('Evan','White','48'),
+	('Matthew','Moore','62'),
+	('Caleb','Wright','23'),
+	('Caden','Sanchez','38'),
+	('James','Evans','40'),
+	('Owen','Baker','41'),
+	('Jacob','Thomas','23'),
+	('Sebastian','Baker','51'),
+	('Wyatt','Williams','36'),
+	('Dylan','Hernandez','48'),
+	('Aiden','Sanchez','20'),
+	('Samuel','Martinez','46'),
+	('Nicholas','Rodriguez','47'),
+	('Jayce','Jones','35'),
+	('Aiden','Green','49'),
+	('Jacob','King','60'),
+	('Ethan','Johnson','43'),
+	('Jacob','Lopez','35'),
+	('Grayson','Hill','55'),
+	('Jack','Jackson','41'),
+	('Ethan','Martin','60'),
+	('Mason','Walker','57'),
+	('Eli','Campbell','20'),
+	('Daniel','Campbell','38'),
+	('Owen','White','53'),
+	('Brayden','Ramirez','36'),
+	('Jack','Mitchell','61'),
+	('Noah','Harris','58'),
+	('Ryan','King','22'),
+	('William','Evans','20'),
+	('Aiden','Rodriguez','63'),
+	('Ryan','Rodriguez','56'),
+	('Samuel','Jackson','41'),
+	('William','King','47'),
+	('Hunter','Phillips','55'),
+	('Matthew','Harris','29'),
+	('Daniel','Hall','37'),
+	('Matthew','Martinez','59'),
+	('William','Jones','44'),
+	('Samuel','Harris','37'),
+	('Jack','Garcia','56'),
+	('Wyatt','Lopez','35'),
+	('Nicholas','Ramirez','51'),
+	('Jayden','Rodriguez','21'),
+	('Caden','Walker','22'),
+	('Brayden','Ramirez','18'),
+	('Isaac','Evans','49'),
+	('Nathan','Lewis','44'),
+	('Wyatt','Hall','55'),
+	('Dominic','Nelson','53'),
+	('Eli','Jones','50'),
+	('Aiden','Davis','62'),
+	('Brayden','Jackson','48'),
+	('James','Green','63'),
+	('Benjamin','Baker','20'),
+	('Noah','Clark','61'),
+	('Eli','Rodriguez','63'),
+	('Joshua','Robinson','49'),
+	('Hunter','White','37'),
+	('Jackson','Miller','43'),
+	('Daniel','Carter','62'),
+	('Noah','Anderson','23'),
+	('Matthew','Walker','45'),
+	('Samuel','Wilson','45'),
+	('Matthew','Gonzalez','54'),
+	('Alexander','Lopez','36'),
+	('Jayden','Sanchez','24'),
+	('Aiden','Campbell','62'),
+	('Brayden','Hill','20'),
+	('Caleb','Robinson','33'),
+	('Jack','Johnson','53'),
+	('Joshua','Carter','47'),
+	('Wyatt','Evans','31'),
+	('Cameron','Hall','50'),
+	('Joshua','Rodriguez','55'),
+	('Nicholas','Anderson','56'),
+	('Matthew','Green','47'),
+	('James','Sanchez','28'),
+	('Noah','Nelson','19'),
+	('Landon','Hall','61'),
+	('Lucas','Jones','46'),
+	('Jacob','Taylor','46'),
+	('Joshua','Martin','22'),
+	('Caleb','Nelson','33'),
+	('Wyatt','Harris','39'),
+	('Luke','Martin','44'),
+	('Logan','Hill','60'),
+	('Wyatt','Lopez','30'),
+	('Daniel','Mitchell','24'),
+	('Evan','Mitchell','47'),
+	('Jayden','Allen','19'),
+	('Benjamin','Davis','48'),
+	('Michael','Martinez','50'),
+	('Dylan','Jackson','39'),
+	('Michael','Lewis','50'),
+	('Joshua','Johnson','48'),
+	('Joshua','King','31'),
+	('Luke','Thomas','25'),
+	('Dylan','Anderson','31'),
+	('Grayson','Taylor','46'),
+	('Elijah','Anderson','18'),
+	('Jacob','Allen','39'),
+	('Michael','Jones','42'),
+	('Benjamin','Young','46'),
+	('Landon','Scott','46'),
+	('Ethan','Davis','63'),
+	('Jackson','Gonzalez','38'),
+	('Jayden','Campbell','59'),
+	('Matthew','Sanchez','20'),
+	('Landon','Baker','36'),
+	('Sebastian','Hall','61'),
+	('Noah','White','33'),
+	('Matthew','Clark','26'),
+	('Wyatt','Allen','57'),
+	('David','Lee','26'),
+	('Carter','Lopez','43'),
+	('Evan','Roberts','39'),
+	('Noah','Evans','48'),
+	('William','Hernandez','53'),
+	('Michael','Wright','45'),
+	('Ethan','Wilson','26'),
+	('Sebastian','Evans','58'),
+	('Andrew','Green','22'),
+	('Daniel','Carter','30'),
+	('Eli','Martin','57'),
+	('Henry','Campbell','25'),
+	('Caden','King','27'),
+	('Evan','Miller','50'),
+	('Hunter','Williams','19'),
+	('Andrew','Garcia','61'),
+	('Andrew','Perez','28'),
+	('Joshua','Allen','30'),
+	('Noah','Anderson','43'),
+	('Sebastian','Nelson','36'),
+	('Elijah','Johnson','21'),
+	('Alexander','Jones','32'),
+	('Ryan','Roberts','24'),
+	('Alexander','Green','62'),
+	('Cameron','Evans','45'),
+	('Nathan','Harris','19'),
+	('Andrew','Lewis','26'),
+	('Jayce','Wright','28'),
+	('Jacob','Thomas','32'),
+	('Joshua','Martinez','25'),
+	('Sebastian','Ramirez','53'),
+	('Ryan','Hill','50'),
+	('Eli','Jackson','43'),
+	('Sebastian','Wilson','45'),
+	('Isaac','Hill','25'),
+	('Jayce','Hill','40'),
+	('Ethan','Johnson','33'),
+	('Nicholas','Rodriguez','18'),
+	('Benjamin','Anderson','54'),
+	('Mason','Harris','64'),
+	('Andrew','Harris','62'),
+	('Eli','Green','37'),
+	('Benjamin','Garcia','34'),
+	('Benjamin','Hall','61'),
+	('Luke','Brown','18'),
+	('Caden','Thomas','45'),
+	('Isaac','Mitchell','43'),
+	('Aiden','Mitchell','59'),
+	('Eli','Lewis','56')
+
+</value>
+  </data>
+  <data name="testCleanupAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here that you want to run after 
+each test method (unit test) in this test class is run.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+
+IF OBJECT_ID('dbo.AggregatesTest_TestData') IS NOT NULL
+    DROP TABLE dbo.AggregatesTest_TestData
+</value>
+  </data>
+  <data name="AggregatesTestDataNotEmpty_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+select * from dbo.AggregatesTest_TestData</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>

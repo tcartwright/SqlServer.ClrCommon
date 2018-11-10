@@ -1,0 +1,9 @@
+﻿CREATE SCHEMA [cmn]
+    AUTHORIZATION [dbo];
+
+
+GO
+GRANT SELECT, EXECUTE
+    ON SCHEMA::[cmn] TO PUBLIC;
+
+

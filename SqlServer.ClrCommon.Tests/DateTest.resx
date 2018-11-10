@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DateMiscTests_TestAction.SqlScript" xml:space="preserve">
+    <value>
+-- THIS TEST WILL ACTUALLY NEED TO BE ADJUSTED EACH YEAR. AS THE AGE IN YEARS WILL INCREASE BY ONE 
+--65	0	31	0	0
+SELECT [xfnAgeInYears('1/1/1950')] = clr.xfnAgeInYears('1/1/1950'), 
+	[xfnIsLeapYear('1/1/1950')] = clr.xfnIsLeapYear('1/1/1950'), 
+	[xfnDaysInMonth('1/1/1950')] = clr.xfnDaysInMonth('1/1/1950'), 
+	[xfnIsDaylightSavingTime('1/1/1950')] = clr.xfnIsDaylightSavingTime('1/1/1950'), 
+	[xfnIsBusinessDay('1/1/1950')] = clr.xfnIsBusinessDay('1/1/1950')
+
+--Monday	208	Thursday	152
+SELECT [xfnDayOfWeek('2015-07-27 13:44:00.780')] = clr.xfnDayOfWeek('2015-07-27 13:44:00.780'), 
+	[xfnDayOfYear('2015-07-27 13:44:00.780')] = clr.xfnDayOfYear('2015-07-27 13:44:00.780'), 
+	[xfnDayOfWeek('6/1/1950')] = clr.xfnDayOfWeek('6/1/1950'), 
+	[xfnDayOfYear('6/1/1950')] = clr.xfnDayOfYear('6/1/1950')
+
+
+SELECT clr.xfnAgeInYearsAtDate('7/22/1965', '8/22/2000'),
+	clr.xfnAgeInYearsAtDate('7/22/1965', '7/21/2000')</value>
+  </data>
+  <metadata name="DataChecksumCondition.Configuration" xml:space="preserve">
+    <value>Press to configure</value>
+  </metadata>
+  <data name="DateReportingFunctionTests_TestAction.SqlScript" xml:space="preserve">
+    <value>
+
+
+SELECT [xfnStartOfDay] = clr.xfnStartOfDay('2015-07-27 13:44:00.780'),
+	[xfnEndOfDay] = clr.xfnEndOfDay('2015-07-27 13:44:00.780')
+
+SELECT [xfnStartOfWeek] = clr.xfnStartOfWeek('2015-07-27 13:44:00.780'),
+	[xfnEndOfWeek] = clr.xfnEndOfWeek('2015-07-27 13:44:00.780')
+
+SELECT [xfnStartOfMonth] = clr.xfnStartOfMonth('2015-07-27 13:44:00.780'),
+	[xfnEndOfMonth] = clr.xfnEndOfMonth('2015-07-27 13:44:00.780')
+	
+SELECT [xfnStartOfYear] = clr.xfnStartOfYear('2015-07-27 13:44:00.780'),
+	[xfnEndOfYear] = clr.xfnEndOfYear('2015-07-27 13:44:00.780')
+
+SELECT [xfnStartOfQuarter-1] = clr.xfnStartOfQuarter('2015-07-27 13:44:00.780', 1),
+	[xfnEndOfQuarter-1] = clr.xfnEndOfQuarter('2015-07-27 13:44:00.780', 1)
+
+SELECT [xfnStartOfQuarter-2] = clr.xfnStartOfQuarter('2015-07-27 13:44:00.780', 2),
+	[xfnEndOfQuarter-2] = clr.xfnEndOfQuarter('2015-07-27 13:44:00.780', 2)
+
+SELECT [xfnStartOfQuarter-3] = clr.xfnStartOfQuarter('2015-07-27 13:44:00.780', 3),
+	[xfnEndOfQuarter-3] = clr.xfnEndOfQuarter('2015-07-27 13:44:00.780', 3)
+
+SELECT [xfnStartOfQuarter-4] = clr.xfnStartOfQuarter('2015-07-27 13:44:00.780', 4),
+	[xfnEndOfQuarter-4] = clr.xfnEndOfQuarter('2015-07-27 13:44:00.780', 4)
+</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>
