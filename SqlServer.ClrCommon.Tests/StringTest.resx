@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Base64Tests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+
+DECLARE @rawText nvarchar(max) = N'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum laoreet, enim sed venenatis elementum, velit neque fermentum nulla, sit amet eleifend libero sapien eu erat. Etiam blandit ullamcorper justo ultrices ullamcorper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla convallis tortor id varius mattis. Phasellus aliquam feugiat lectus et maximus. Suspendisse non urna erat. Suspendisse potenti. Ut rutrum tortor non neque suscipit commodo. Mauris scelerisque nulla eu pharetra tempor. Suspendisse et consectetur felis. Donec tincidunt, purus ut volutpat placerat, lacus erat accumsan nibh, non fermentum dolor ante in sapien. Duis eget orci ligula. Sed eu velit odio. Aliquam eu erat est. Sed interdum augue vel elit molestie, at euismod dui pharetra. Cras hendrerit rhoncus congue. Curabitur vel commodo nisl, ac egestas urna. Quisque quis ante quis turpis posuere finibus vitae in magna. Nulla rhoncus, purus ut vehicula scelerisque, velit nulla pharetra ante, ut blandit erat sem in odio. Ut nec nisl laoreet, finibus nulla non, consectetur velit. Nam mollis turpis vel congue tincidunt. Proin elementum luctus sapien, vitae sodales felis. Sed maximus, ligula a condimentum congue, metus nulla imperdiet dui, vel facilisis justo tellus vel elit. Nulla elit risus, maximus nec mollis vitae, aliquam nec metus.'
+
+DECLARE @base64 nvarchar(max),
+	@base64Null nvarchar(max),
+	@base64Empty nvarchar(max)
+
+DECLARE @text nvarchar(max),
+	@textNull nvarchar(max),
+	@textEmpty nvarchar(max)
+
+SELECT @base64 = clr.xfnToBase64(convert(varbinary(max), @rawText))
+	, @base64Null = clr.xfnToBase64(convert(varbinary(max), NULL))
+	, @base64Empty = clr.xfnToBase64(convert(varbinary(max), ''))
+
+
+SELECT @text = convert(varchar(max), clr.xfnFromBase64(@base64))
+	,@textNull = convert(varchar(max), clr.xfnFromBase64(NULL))
+	,@textEmpty = convert(varchar(max), clr.xfnFromBase64(''))
+
+SELECT CASE WHEN @text = @rawText THEN 1 ELSE 0 END, 
+	CASE WHEN @textNull IS NULL THEN 1 ELSE 0 END,
+	CASE WHEN @textEmpty IS NULL THEN 1 ELSE 0 END,
+	CASE WHEN @base64Null IS NULL THEN 1 ELSE 0 END,
+	CASE WHEN @base64Null IS NULL THEN 1 ELSE 0 END</value>
+  </data>
+  <data name="BetterQuoteNameTests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+SELECT QuoteName('dbo.TABLE_NAME'),  -- example of old broken behavior
+	clr.xfnBetterQuoteName('dbo.TABLE_NAME  tbl'), 
+	clr.xfnBetterQuoteName('dbo.OBJECT_NAME As OBJECT_ALIAS'), 
+	[FieldList1] = clr.xfnBetterQuoteName('Column1, Column2, Column3, Column4, Column5, Column6, ;here is my sql injection; --'),
+	[FieldList2] = clr.xfnBetterQuoteName('tbl.Column1, tbl.Column2, tbl.Column3'),
+	[FieldList3] = clr.xfnBetterQuoteName('dbname.tbl.Column1, dbname.tbl.Column2, tbl.Column3'),
+	clr.xfnBetterQuoteName('dbo.OBJECT_NAME OBJECT_ALIAS'),
+	clr.xfnBetterQuoteName(NULL),
+	clr.xfnBetterQuoteName('')
+</value>
+  </data>
+  <metadata name="FormatString_CheckSum.Configuration" xml:space="preserve">
+    <value>Press to configure</value>
+  </metadata>
+  <data name="FormatStringNTests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+SELECT clr.xfnFormatString3(N'This is arg 0:({0}), arg 1:({1}), and arg 2 as a date: ({2:yyyy-MM-dd}), and arg 2 as a time: ({2:HH:mm:ss:fff})', 'foo', 'bar', cast('2015-07-27 13:05:10.478' AS datetime))
+
+
+
+SELECT clr.xfnFormatString6(N'Name:{0}; Number:{1}; Type:{2}; Low:{3}; High:{4}; Status:{5}', sv.name, sv.number, sv.type, sv.low, sv.high, sv.status) 
+--SELECT sv.name, sv.number, sv.type, sv.low, sv.high, sv.status 
+FROM master.dbo.spt_values sv
+WHERE sv.type = 'P'</value>
+  </data>
+  <metadata name="FormatString_CheckSum.Configuration" xml:space="preserve">
+    <value>Press to configure</value>
+  </metadata>
+  <data name="FormatTests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+SELECT clr.xfnFormat('2015-07-27 09:42:26.1552697', 'MM/dd/yyyy'),
+	clr.xfnFormat('2015-07-27 09:42:26.1552697', 'yyyy-MM-dd'),
+	clr.xfnFormat('1234.4321', '##,###.00'),
+	clr.xfnFormat('1234', '##,###.00'),
+	clr.xfnFormat(null, '##,###.00')</value>
+  </data>
+  <data name="PadTests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+SELECT clr.xfnPadLeft('9999', '0', 10), clr.xfnPadRight('9999', '0', 10),
+	clr.xfnPadLeft(null, '0', 10), clr.xfnPadRight(null, '0', 10),
+	clr.xfnPadLeft('9999', '0', 4), clr.xfnPadRight('9999', '0', 4), 
+	clr.xfnPadLeft('', '0', 4), clr.xfnPadRight('', '0', 4)  
+</value>
+  </data>
+  <data name="ProperCasesTests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+SELECT clr.xfnProperCase('john doe'),  
+	clr.xfnProperCase(null),  
+	clr.xfnProperCase('')</value>
+  </data>
+  <data name="StringCountAndIndexTests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+
+SELECT clr.xfnCountString('Lorem ipsum dolor sit amet? Lorem ipsum dolor sit amet?', 'ipsum'),
+	clr.xfnCountString(null, 'ipsum'),
+	clr.xfnCountString('', 'ipsum')
+
+SELECT clr.xfnIndexOf('Lorem ipsum dolor sit amet? Lorem ipsum dolor sit amet?', 'ipsum'),
+	clr.xfnIndexOf(null, 'ipsum'),
+	clr.xfnIndexOf('', 'ipsum')
+
+SELECT clr.xfnLastIndexOf('Lorem ipsum dolor sit amet? Lorem ipsum dolor sit amet?', 'ipsum'),
+	clr.xfnLastIndexOf(null, 'ipsum'),
+	clr.xfnLastIndexOf('', 'ipsum')
+
+SELECT clr.xfnNthIndexOf('Lorem ipsum dolor sit amet? Lorem ipsum dolor sit amet?', 'ipsum', 1), 
+	clr.xfnNthIndexOf('Lorem ipsum dolor sit amet? Lorem ipsum dolor sit amet?', 'ipsum', 2), 
+	clr.xfnNthIndexOf('Lorem ipsum dolor sit amet? Lorem ipsum dolor sit amet?', 'ipsum', 3),
+	clr.xfnNthIndexOf(null, 'ipsum', 1)
+</value>
+  </data>
+  <data name="TryParseTests_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+SELECT clr.xfnTryParseToInt('123', 0), clr.xfnTryParseToInt('123a', 1),
+	clr.xfnTryParseToInt(null, 2), clr.xfnTryParseToInt(null, 3),
+	clr.xfnTryParseToInt('', 4), clr.xfnTryParseToInt('', 5)
+
+SELECT clr.xfnTryParseToDbl('123.45', 0), clr.xfnTryParseToDbl('123.45a', 1.1),
+	clr.xfnTryParseToDbl(null, 1.2), clr.xfnTryParseToDbl(null, 1.3),
+	clr.xfnTryParseToDbl('', 1.4), clr.xfnTryParseToDbl('', 1.5)</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>
