@@ -33,7 +33,7 @@ function InstallPackage($packageName, $dllName, $folderMatch = "lib\\net\d{1,4}"
     }
 
     $package = Get-Package $packageName -ErrorAction SilentlyContinue
-    if (-not $package -or $force.IsPresent) {
+    if (-not $package) {
         if ($isAdmin) {
             Write-Host "Installing module: $packageName"
             Install-Package -Name $packageName -Force:$force.IsPresent -Source $source -SkipDependencies:$SkipDependencies.IsPresent
