@@ -1,5 +1,5 @@
 
-name: .NET Core Desktop
+name: SQL CLR dll
 
 on:
   workflow_dispatch:
@@ -10,11 +10,12 @@ jobs:
     runs-on: windows-latest  # For a list of available runner types, refer to
                                # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
     env:
-      Solution_Name: "SqlServer.ClrCommon.sln"                         # Replace with your solution name, i.e. MyWpfApp.sln.
-      Test_Project_Path: "SqlServer.ClrCommon.Tests\\SqlServer.ClrCommon.Tests.csproj"                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+      Solution_Name: "${{ github.workspace }}\\SqlServer.ClrCommon.sln"                         # Replace with your solution name, i.e. MyWpfApp.sln.
+      Test_Project_Path: "${{ github.workspace }}\\SqlServer.ClrCommon.Tests\\SqlServer.ClrCommon.Tests.csproj"                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
       configuration: Release
       binary_path: "${{ github.workspace }}\\SqlServer.ClrCommon\\bin\\Release\\SqlServer.ClrCommon.dll"
-      dacpac_path: "${{ github.workspace }}\\SqlServer.ClrCommon\\bin\\Release\\SqlServer.ClrCommon.dacpac"                         
+      dacpac_path: "${{ github.workspace }}\\SqlServer.ClrCommon\\bin\\Release\\SqlServer.ClrCommon.dacpac"    
+      database_name: CommonDB                     
       
     steps:
     - name: Checkout
@@ -60,6 +61,10 @@ jobs:
         Import-Module $moduleName
         Enter-VisualStudioDeveloperShell        
         . signtool.exe sign /f certificate\certificate.pfx /p '${{ secrets.CODE_SIGN_PASSWORD }}' /t http://timestamp.comodoca.com/authenticode "$env:binary_path"
+
+    - name: Generate The Setup Script
+      shell: powershell
+      run: .\.github\workflows\generate_setup_script.ps1 -dacpacPath "$env:dacpac_path" -binaryPath "$env:binary_path" -pfxPath "${{ github.workspace }}\\certificate\certificate.pfx" -databaseName "$env:database_name"
 
     # Remove the pfx
     - name: Remove the pfx
