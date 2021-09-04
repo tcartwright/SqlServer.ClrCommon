@@ -136,5 +136,5 @@ $script = $script -ireplace "CREATE\s+ASSEMBLY\s+(\[.*?\])[\w\W]*?GO", "CREATE A
 Write-Output "Remove the alter assembly statement. Not needed and only bloats the script"
 $script = $script -ireplace "ALTER\s+ASSEMBLY[\w\W]*?GO", ""
 
-Write-Output "Write"
+Write-Output "Set up script written to '$rootPath\$databaseName-setup.sql'"
 [System.IO.File]::WriteAllText("$rootPath\$databaseName-setup.sql", "$setupSql`r`n$script")
