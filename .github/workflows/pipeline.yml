@@ -8,32 +8,63 @@ jobs:
 
   build:
     runs-on: windows-latest  # For a list of available runner types, refer to
-                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+                               # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+    env:
+      Solution_Name: "SqlServer.ClrCommon.sln"                         # Replace with your solution name, i.e. MyWpfApp.sln.
+      Test_Project_Path: "SqlServer.ClrCommon.Tests\\SqlServer.ClrCommon.Tests.csproj"                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+      configuration: Release
+      binary_path: "SqlServer.ClrCommon\\SqlServer.ClrCommon\\bin\\Release\\SqlServer.ClrCommon.dll"                         
+      
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: "5.0.x" # SDK Version to use; x will use the latest version of the 5.0 channel
     
-    - uses: actions/checkout@v2
-    
     - name: Write Tree
-      run: |
-        tree /f .\
+      run: tree /f 
           
-    - name: EnterDeveloperPowerShell
+    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    # Execute all unit tests in the solution
+    - name: Execute unit tests
+      run: dotnet test
+      
+    # Restore the application to populate the obj folder with RuntimeIdentifiers
+    - name: Restore the application
+      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
+      env:
+        Configuration: ${{ matrix.configuration }}
+        
+    # https://archi-lab.net/code-signing-assemblies-with-github-actions/    
+    - name: Create Code Signing Certificate
+      run: |
+        New-Item -ItemType directory -Path certificate
+        Set-Content -Path certificate\certificate.txt -Value '${{ secrets.BASE64_ENCODED_PFX }}'
+        certutil -decode certificate\certificate.txt certificate\certificate.pfx        
+
+    # Restore the application to populate the obj folder with RuntimeIdentifiers
+    - name: Build the application
+      run:  msbuild $env:Solution_Name /target:ReBuild /interactive:false /nologo /p:platform="any cpu" /p:configuration="$env:Configuration" /clp:Summary 
+
+    - name: Code Sign The DLL
       shell: powershell
       run: |
-          $moduleName = "EnterDeveloperPowerShell"
+        $moduleName = "EnterDeveloperPowerShell"
 
-          $module = Get-InstalledModule $moduleName -ErrorAction SilentlyContinue
-          if (-not $module) {
-              Write-Host "Installing module: $moduleName"
-              Install-Module -Name $moduleName -Force
-          }
+        $module = Get-InstalledModule $moduleName -ErrorAction SilentlyContinue
+        if (-not $module) {
+            Write-Host "Installing module: $moduleName"
+            Install-Module -Name $moduleName -Force
+        }
 
-          Import-Module $moduleName
-          Enter-VisualStudioDeveloperShell
-          # . msbuild $solutionPath /restore /target:ReBuild /interactive:false /nologo /p:platform="any cpu" /p:configuration="$configuration" /clp:Summary 
-
-        
+        Import-Module $moduleName
+        Enter-VisualStudioDeveloperShell        
+        . signtool.exe sign /f certificate\certificate.pfx /p '${{ secrets.CODE_SIGN_PASSWORD }}' /t http://timestamp.comodoca.com/authenticode "$env:binary_path"
