@@ -139,7 +139,7 @@ if ($rootPath -imatch "4.5") {
 }
 
 Write-Output "Set up script written to '$rootPath\SqlClrCommon-$configuration-setup.sql'"
-[System.IO.File]::WriteAllText("$rootPath\$databaseName-$configuration-setup.sql", "$setupSql`r`n$script")
+[System.IO.File]::WriteAllText("$rootPath\SqlClrCommon-$configuration-setup.sql", "$setupSql`r`n$script")
 
 Write-Output "Creating release zip to $releasePath"
 $types = ".bat", ".ps1", ".sql"
