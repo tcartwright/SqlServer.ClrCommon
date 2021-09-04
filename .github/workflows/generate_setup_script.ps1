@@ -32,10 +32,10 @@ function InstallPackage($packageName, $dllName, $folderMatch = "lib\\net\d{1,4}"
     $package = Get-Package $packageName -ErrorAction SilentlyContinue
     if (-not $package -or $force.IsPresent) {
         if ($isAdmin) {
-            Write-Host "Installing module: $packageName"
+            Write-Host "Installing Package: $packageName"
             Install-Package -Name $packageName -Force:$force.IsPresent -Source $source -SkipDependencies:$SkipDependencies.IsPresent
         } else {
-            Write-Host "Installing module: $packageName in CurrentUser scope"
+            Write-Host "Installing Package: $packageName in CurrentUser scope"
             Install-Package -Name $packageName -Force:$force.IsPresent -scope CurrentUser -Source $source -SkipDependencies:$SkipDependencies.IsPresent
         }
         $package = Get-Package $packageName -ErrorAction SilentlyContinue
@@ -72,7 +72,7 @@ function FileToBinString ([string]$fileName, $chunkSize = 2500 ) {
 }
 
 Write-Output "Installing package: Microsoft.SqlServer.DacFx.x64"
-InstallPackage -packageName "Microsoft.SqlServer.DacFx.x64" -dllName "Microsoft.SqlServer.Dac.dll" -SkipDependencies | Out-Null
+InstallPackage -packageName "Microsoft.SqlServer.DacFx.x64" -dllName "Microsoft.SqlServer.Dac.dll" -SkipDependencies -force | Out-Null
 
 # we have to get the binary AFTER we sign it
 Write-Output "Get contents of $pfxPath as binary string"
