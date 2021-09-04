@@ -46,7 +46,7 @@ jobs:
 
       # Restore the application to populate the obj folder with RuntimeIdentifiers
       - name: Build the application
-        run: msbuild $env:Solution_Name /target:ReBuild /interactive:false /nologo /p:platform="any cpu" /p:configuration="$env:Configuration;$env:configuration45" /clp:Summary /m
+        run: msbuild $env:Solution_Name /target:ReBuild /interactive:false /nologo /p:platform="any cpu" /p:configuration="$($env:Configuration);$($env:configuration45)" /clp:Summary /m
 
       - name: Code Sign The DLL
         shell: powershell
