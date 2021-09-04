@@ -13,7 +13,7 @@ jobs:
       Solution_Name: "SqlServer.ClrCommon.sln"                         # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: "SqlServer.ClrCommon.Tests\\SqlServer.ClrCommon.Tests.csproj"                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
       configuration: Release
-      binary_path: "SqlServer.ClrCommon\\SqlServer.ClrCommon\\bin\\Release\\SqlServer.ClrCommon.dll"                         
+      binary_path: "SqlServer.ClrCommon\\bin\\Release\\SqlServer.ClrCommon.dll"                         
       
     steps:
     - name: Checkout
