@@ -32,10 +32,10 @@ function InstallPackage($packageName, $dllName, $folderMatch = "lib\\net\d{1,4}"
     $package = Get-Package $packageName -ErrorAction SilentlyContinue
     if (-not $package -or $force.IsPresent) {
         if ($isAdmin) {
-            Write-Host "Installing Package: $packageName"
+            Write-Host "Installing module: $packageName"
             Install-Package -Name $packageName -Force:$force.IsPresent -Source $source -SkipDependencies:$SkipDependencies.IsPresent
         } else {
-            Write-Host "Installing Package: $packageName in CurrentUser scope"
+            Write-Host "Installing module: $packageName in CurrentUser scope"
             Install-Package -Name $packageName -Force:$force.IsPresent -scope CurrentUser -Source $source -SkipDependencies:$SkipDependencies.IsPresent
         }
         $package = Get-Package $packageName -ErrorAction SilentlyContinue
@@ -138,3 +138,8 @@ $script = $script -ireplace "ALTER\s+ASSEMBLY[\w\W]*?GO", ""
 
 Write-Output "Set up script written to '$rootPath\$databaseName-setup.sql'"
 [System.IO.File]::WriteAllText("$rootPath\$databaseName-setup.sql", "$setupSql`r`n$script")
+
+Write-Output "Creating release zip to $rootPath\Release.zip"
+Get-ChildItem $rootPath | Compress-Archive -Destination "$rootPath\Release.zip"
+
+echo "GITHUB_RELEASE_PATH=$rootPath\Release.zip" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
