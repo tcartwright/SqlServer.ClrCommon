@@ -11,11 +11,11 @@ jobs:
     env:
       Solution_Name: "${{ github.workspace }}\\SqlServer.ClrCommon.sln" # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: "${{ github.workspace }}\\SqlServer.ClrCommon.Tests\\SqlServer.ClrCommon.Tests.csproj" # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      configuration: "Release"
-      configuration45: "Release4.5"
-      binary_file: "SqlServer.ClrCommon.dll"
-      dacpac_file: "SqlServer.ClrCommon.dacpac"
-      bin_path: "${{ github.workspace }}\\SqlServer.ClrCommon\\bin"
+      configuration: Release
+      configuration45: Release4.5
+      binary_file: SqlServer.ClrCommon.dll
+      dacpac_file: SqlServer.ClrCommon.dacpac
+      bin_path: ${{ github.workspace }}\\SqlServer.ClrCommon\\bin
       database_name: CommonDB
 
     steps:
@@ -46,7 +46,9 @@ jobs:
 
       # Restore the application to populate the obj folder with RuntimeIdentifiers
       - name: Build the application
-        run: msbuild $env:Solution_Name /target:ReBuild /interactive:false /nologo /p:platform="any cpu" /p:configuration="$($env:Configuration);$($env:configuration45)" /clp:Summary /m
+        run: |
+          msbuild $env:Solution_Name /target:ReBuild /interactive:false /nologo /p:platform="any cpu" /p:configuration="$env:configuration" /clp:Summary /m
+          msbuild $env:Solution_Name /target:ReBuild /interactive:false /nologo /p:platform="any cpu" /p:configuration="$env:configuration45" /clp:Summary /m
 
       - name: Code Sign The DLL
         shell: powershell
@@ -62,23 +64,23 @@ jobs:
           Import-Module $moduleName
           Enter-VisualStudioDeveloperShell        
 
-          . signtool.exe sign /f certificate\certificate.pfx /p '${{ secrets.CODE_SIGN_PASSWORD }}' /t http://timestamp.comodoca.com/authenticode "$env:bin_path\\$env:Configuration\\$env:binary_file"
-          . signtool.exe sign /f certificate\certificate.pfx /p '${{ secrets.CODE_SIGN_PASSWORD }}' /t http://timestamp.comodoca.com/authenticode "$env:bin_path\\$env:Configuration45\\$env:binary_file"
+          . signtool.exe sign /f certificate\certificate.pfx /p '${{ secrets.CODE_SIGN_PASSWORD }}' /t http://timestamp.comodoca.com/authenticode "$env:bin_path\\$env:configuration\\$env:binary_file"
+          . signtool.exe sign /f certificate\certificate.pfx /p '${{ secrets.CODE_SIGN_PASSWORD }}' /t http://timestamp.comodoca.com/authenticode "$env:bin_path\\$env:configuration45\\$env:binary_file"
 
 
       - name: Generate The Setup Script
         shell: powershell
         run: |
           .\.github\workflows\generate_setup_script.ps1 `
-            -dacpacPath "$env:bin_path\\$env:Configuration\\$env:dacpac_file" `
-            -binaryPath "$env:bin_path\\$env:Configuration\\$env:binary_file" `
+            -dacpacPath "$env:bin_path\\$env:configuration\\$env:dacpac_file" `
+            -binaryPath "$env:bin_path\\$env:configuration\\$env:binary_file" `
             -pfxPath "${{ github.workspace }}\\certificate\certificate.pfx" `
             -databaseName "$env:database_name" `
             -releasePath "${{ github.workspace }}\\Release.zip"
 
           .\.github\workflows\generate_setup_script.ps1 `
-            -dacpacPath "$env:bin_path\\$env:Configuration45\\$env:dacpac_file" `
-            -binaryPath "$env:bin_path\\$env:Configuration45\\$env:binary_file" `
+            -dacpacPath "$env:bin_path\\$env:configuration45\\$env:dacpac_file" `
+            -binaryPath "$env:bin_path\\$env:configuration45\\$env:binary_file" `
             -pfxPath "${{ github.workspace }}\\certificate\certificate.pfx" `
             -databaseName "$env:database_name" `
             -releasePath "${{ github.workspace }}\\Release.zip"
