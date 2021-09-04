@@ -1,87 +1,101 @@
-
 name: SQL CLR Build
 
 on:
   workflow_dispatch:
 
 jobs:
-
   build:
-    runs-on: windows-latest  # For a list of available runner types, refer to
-                               # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+    runs-on:
+      windows-latest # For a list of available runner types, refer to
+      # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+
+  strategy:
+    matrix:
+      configuration: [Release, Release4.5]
+
     env:
-      Solution_Name: "${{ github.workspace }}\\SqlServer.ClrCommon.sln"                         # Replace with your solution name, i.e. MyWpfApp.sln.
-      Test_Project_Path: "${{ github.workspace }}\\SqlServer.ClrCommon.Tests\\SqlServer.ClrCommon.Tests.csproj"                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      configuration: "Release4.5"
-      binary_path: "${{ github.workspace }}\\SqlServer.ClrCommon\\bin\\Release4.5\\SqlServer.ClrCommon.dll"
-      dacpac_path: "${{ github.workspace }}\\SqlServer.ClrCommon\\bin\\Release4.5\\SqlServer.ClrCommon.dacpac"    
-      database_name: CommonDB                     
-      
+      Solution_Name: "${{ github.workspace }}\\SqlServer.ClrCommon.sln" # Replace with your solution name, i.e. MyWpfApp.sln.
+      Test_Project_Path: "${{ github.workspace }}\\SqlServer.ClrCommon.Tests\\SqlServer.ClrCommon.Tests.csproj" # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+      binary_path: "SqlServer.ClrCommon.dll"
+      dacpac_path: "SqlServer.ClrCommon.dacpac"
+      database_name: CommonDB
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: "5.0.x" # SDK Version to use; x will use the latest version of the 5.0 channel
-    
-    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v1.0.2
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
-    # Execute all unit tests in the solution
-    #- name: Execute unit tests
-    #  run: dotnet test
-        
-    # https://archi-lab.net/code-signing-assemblies-with-github-actions/    
-    - name: Create Code Signing Certificate
-      run: |
-        New-Item -ItemType directory -Path certificate
-        Set-Content -Path certificate\certificate.txt -Value '${{ secrets.BASE64_ENCODED_PFX }}'
-        certutil -decode certificate\certificate.txt certificate\certificate.pfx        
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "5.0.x" # SDK Version to use; x will use the latest version of the 5.0 channel
 
-    # Restore the application to populate the obj folder with RuntimeIdentifiers
-    - name: Build the application
-      run:  msbuild $env:Solution_Name /target:ReBuild /interactive:false /nologo /p:platform="any cpu" /p:configuration="$env:Configuration" /clp:Summary 
+      # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+      - name: Setup MSBuild.exe
+        uses: microsoft/setup-msbuild@v1.0.2
 
-    - name: Code Sign The DLL
-      shell: powershell
-      run: |
-        $moduleName = "EnterDeveloperPowerShell"
+      # Execute all unit tests in the solution
+      #- name: Execute unit tests
+      #  run: dotnet test
 
-        $module = Get-InstalledModule $moduleName -ErrorAction SilentlyContinue
-        if (-not $module) {
-            Write-Host "Installing module: $moduleName"
-            Install-Module -Name $moduleName -Force
-        }
+      # https://archi-lab.net/code-signing-assemblies-with-github-actions/
+      - name: Create Code Signing Certificate
+        run: |
+          New-Item -ItemType directory -Path certificate
+          Set-Content -Path certificate\certificate.txt -Value '${{ secrets.BASE64_ENCODED_PFX }}'
+          certutil -decode certificate\certificate.txt certificate\certificate.pfx
 
-        Import-Module $moduleName
-        Enter-VisualStudioDeveloperShell        
-        . signtool.exe sign /f certificate\certificate.pfx /p '${{ secrets.CODE_SIGN_PASSWORD }}' /t http://timestamp.comodoca.com/authenticode "$env:binary_path"
+      # Restore the application to populate the obj folder with RuntimeIdentifiers
+      - name: Build the application
+        run: msbuild $env:Solution_Name /target:ReBuild /interactive:false /nologo /p:platform="any cpu" /p:configuration="$env:Configuration" /clp:Summary
+        env:
+          Configuration: ${{ matrix.configuration }}
 
-    - name: Generate The Setup Script
-      shell: powershell
-      run: .\.github\workflows\generate_setup_script.ps1 -dacpacPath "$env:dacpac_path" -binaryPath "$env:binary_path" -pfxPath "${{ github.workspace }}\\certificate\certificate.pfx" -databaseName "$env:database_name"
+      - name: Code Sign The DLL
+        shell: powershell
+        run: |
+          $moduleName = "EnterDeveloperPowerShell"
 
-    # Remove the pfx
-    - name: Remove the pfx
-      shell: powershell
-      run: Get-ChildItem -Path "certificate\" -File | Remove-Item -Force -Verbose
+          $module = Get-InstalledModule $moduleName -ErrorAction SilentlyContinue
+          if (-not $module) {
+              Write-Host "Installing module: $moduleName"
+              Install-Module -Name $moduleName -Force
+          }
 
-    - name: Bump version and push tag
-      id: tag_version
-      uses: mathieudutour/github-tag-action@v5.6
-      if: ${{ github.ref == 'refs/heads/master' }}
-      with:
-        github_token: "${{ secrets.GITHUB_TOKEN }}"
+          Import-Module $moduleName
+          Enter-VisualStudioDeveloperShell        
+          . signtool.exe sign /f certificate\certificate.pfx /p '${{ secrets.CODE_SIGN_PASSWORD }}' /t http://timestamp.comodoca.com/authenticode "${{ github.workspace }}\\SqlServer.ClrCommon\\bin\\$env:Configuration\\$env:binary_path"
+        env:
+          Configuration: ${{ matrix.configuration }}
 
-    - name: Create Release
-      uses: ncipollo/release-action@v1
-      if: ${{ github.ref == 'refs/heads/master' }}
-      with:
-        artifacts: "${{ env.GITHUB_RELEASE_PATH }}"
-        token: "${{ secrets.GITHUB_TOKEN }}"
-        tag: "${{ steps.tag_version.outputs.new_tag }}"
+      - name: Generate The Setup Script
+        shell: powershell
+        run: .\.github\workflows\generate_setup_script.ps1 `
+          -dacpacPath "${{ github.workspace }}\\SqlServer.ClrCommon\\bin\\$env:Configuration\\$env:dacpac_path" `
+          -binaryPath "${{ github.workspace }}\\SqlServer.ClrCommon\\bin\\$env:Configuration\\$env:binary_path" `
+          -pfxPath "${{ github.workspace }}\\certificate\certificate.pfx" `
+          -databaseName "$env:database_name" `
+          -releasePath "${{ github.workspace }}\\Release.zip"
+        env:
+          Configuration: ${{ matrix.configuration }}
+
+      # Remove the pfx
+      - name: Remove the pfx
+        shell: powershell
+        run: Get-ChildItem -Path "certificate\" -File | Remove-Item -Force -Verbose
+
+      - name: Bump version and push tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v5.6
+        if: ${{ github.ref == 'refs/heads/master' }}
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        if: ${{ github.ref == 'refs/heads/master' }}
+        with:
+          artifacts: "${{ github.workspace }}\\Release.zip"
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          tag: "${{ steps.tag_version.outputs.new_tag }}"
