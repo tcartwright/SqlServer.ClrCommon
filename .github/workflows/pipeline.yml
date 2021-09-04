@@ -13,7 +13,8 @@ jobs:
       Solution_Name: "SqlServer.ClrCommon.sln"                         # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: "SqlServer.ClrCommon.Tests\\SqlServer.ClrCommon.Tests.csproj"                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
       configuration: Release
-      binary_path: "SqlServer.ClrCommon\\bin\\Release\\SqlServer.ClrCommon.dll"                         
+      binary_path: "${{ github.workspace }}\\SqlServer.ClrCommon\\bin\\Release\\SqlServer.ClrCommon.dll"
+      dacpac_path: "${{ github.workspace }}\\SqlServer.ClrCommon\\bin\\Release\\SqlServer.ClrCommon.dacpac"                         
       
     steps:
     - name: Checkout
@@ -26,9 +27,6 @@ jobs:
       with:
         dotnet-version: "5.0.x" # SDK Version to use; x will use the latest version of the 5.0 channel
     
-    - name: Write Tree
-      run: tree /f 
-          
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v1.0.2
