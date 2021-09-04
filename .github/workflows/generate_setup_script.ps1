@@ -25,7 +25,7 @@ $isAdmin = $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administ
 $scriptRoot = [System.IO.Directory]::GetParent($MyInvocation.MyCommand.Definition).FullName
 $rootPath = Split-Path $binaryPath -Parent
 
-Set-location $rootPath
+pushd $rootPath
 
 function InstallPackage($packageName, $dllName, $folderMatch = "lib\\net\d{1,4}", $source = "nuget.org", [switch]$force, [switch]$SkipDependencies) {
     if (!$dllName) {
@@ -150,4 +150,4 @@ Write-Output "Set up script written to '$rootPath\$databaseName-$configuration-s
 Write-Output "Creating release zip to $releasePath"
 Get-ChildItem $rootPath | Compress-Archive -Destination "$releasePath" -CompressionLevel Optimal -Update
 
-
+popd
