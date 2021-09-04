@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2018
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SqlServer.ClrCommon", "SqlServer.ClrCommon\SqlServer.ClrCommon.sqlproj", "{80F6878B-B3C3-4E1D-B535-892CA26C9EB4}"
 EndProject
@@ -17,6 +17,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Readme - How to generate the Create Assembly script.txt = Readme - How to generate the Create Assembly script.txt
 		ReadMe - How to run tests.txt = ReadMe - How to run tests.txt
 		Readme - How To Target Multiple .Net Frameworks.txt = Readme - How To Target Multiple .Net Frameworks.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{72F276AF-0231-46F0-8FEA-5B775F445671}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{42E4C412-5AF0-4169-9202-6BD2FB942E20}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\generate_setup_script.ps1 = .github\workflows\generate_setup_script.ps1
+		.github\workflows\pipeline.yml = .github\workflows\pipeline.yml
 	EndProjectSection
 EndProject
 Global
@@ -50,6 +58,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{42E4C412-5AF0-4169-9202-6BD2FB942E20} = {72F276AF-0231-46F0-8FEA-5B775F445671}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {94F2A7F4-BF59-41DB-B2BB-D76BCE698997}

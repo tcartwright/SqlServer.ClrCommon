@@ -85,12 +85,6 @@ Write-Output "Get contents of $binaryPath as binary string, now that it is signe
 $clrBinString = FileToBinString -fileName $binaryPath
 
 $setupSql = @"
-:setvar DatabaseName "$databaseName"
-USE master
-GO
-IF DB_ID('$databaseName') IS NULL BEGIN
-	CREATE DATABASE [$databaseName] -- create the database with all of the default options
-END 
 GO
 IF NOT EXISTS (SELECT * FROM sys.certificates c WHERE c.name = 'SQLServerClrCert') BEGIN
 	RAISERROR( 'CREATE CERTIFICATE [SQLServerClrCert]', 0, 1) WITH NOWAIT
@@ -139,15 +133,18 @@ $script = $script -ireplace "CREATE\s+ASSEMBLY\s+(\[.*?\])[\w\W]*?GO", "CREATE A
 Write-Output "Remove the alter assembly statement. Not needed and only bloats the script"
 $script = $script -ireplace "ALTER\s+ASSEMBLY[\w\W]*?GO", ""
 
-$configuration = "2012_and_lower"
+$configuration = "2012-and-lower"
 if ($rootPath -imatch "4.5") {
-    $configuration = "2014_and_greater"
+    $configuration = "2014-and-greater"
 }
 
 Write-Output "Set up script written to '$rootPath\$databaseName-$configuration-setup.sql'"
 [System.IO.File]::WriteAllText("$rootPath\$databaseName-$configuration-setup.sql", "$setupSql`r`n$script")
 
 Write-Output "Creating release zip to $releasePath"
-Get-ChildItem $rootPath | Compress-Archive -Destination "$releasePath" -CompressionLevel Optimal -Update
+$types = ".bat", ".ps1", ".sql"
+Get-ChildItem $rootPath `
+    | Where-Object { $types -icontains [System.IO.Path]::GetExtension($_.FullName)  } `
+    | Compress-Archive -Destination "$releasePath" -CompressionLevel Optimal -Update
 
 popd

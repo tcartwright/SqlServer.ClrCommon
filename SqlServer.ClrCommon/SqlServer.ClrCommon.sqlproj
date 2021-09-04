@@ -112,6 +112,7 @@
     <Folder Include="cmn\Tables\" />
     <Folder Include="cmn\Functions\" />
     <Folder Include="Security\" />
+    <Folder Include="Readmes" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -137,12 +138,20 @@
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="TestScript.sql" />
     <None Include="Help\SqlServer.ClrCommon.shfbproj" />
-    <None Include="Readme - How To Target Multiple .Net Frameworks.txt" />
-    <None Include="Readme - How to generate the Create Assembly script.txt" />
-    <None Include="Readme - How to DEBUG.txt" />
     <None Include="SqlServer.ClrCommon.publish.xml" />
+    <None Include="Readmes\Readme - How to DEBUG.txt" />
+    <None Include="Readmes\Readme - How To Target Multiple .Net Frameworks.txt" />
+    <None Include="Readmes\Readme - How to generate the Create Assembly script.txt" />
+    <None Include="Install.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Install.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestScript.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="DebugScript.sql" />
@@ -154,6 +163,11 @@
     </Build>
     <Build Include="Security\cmn.sql" />
     <Build Include="Security\clr.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="setup-start.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <PostBuildEvent>
