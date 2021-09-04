@@ -34,14 +34,8 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
 
     # Execute all unit tests in the solution
-    - name: Execute unit tests
-      run: dotnet test
-      
-    # Restore the application to populate the obj folder with RuntimeIdentifiers
-    - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
-      env:
-        Configuration: ${{ matrix.configuration }}
+    #- name: Execute unit tests
+    #  run: dotnet test
         
     # https://archi-lab.net/code-signing-assemblies-with-github-actions/    
     - name: Create Code Signing Certificate
@@ -68,3 +62,8 @@ jobs:
         Import-Module $moduleName
         Enter-VisualStudioDeveloperShell        
         . signtool.exe sign /f certificate\certificate.pfx /p '${{ secrets.CODE_SIGN_PASSWORD }}' /t http://timestamp.comodoca.com/authenticode "$env:binary_path"
+
+    # Remove the pfx
+    - name: Remove the pfx
+      shell: powershell
+      run: Get-ChildItem -Path "certificate\" -File | Remove-Item -Force
