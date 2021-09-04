@@ -11,7 +11,10 @@ param (
     $pfxPath,
     [Parameter(Mandatory=$true)]
     [string]
-    $databaseName
+    $databaseName,
+    [Parameter(Mandatory=$true)]
+    [string]
+    $releasePath
 )
 
 Set-StrictMode -Version 3.0
@@ -117,7 +120,7 @@ $dacOptions.IncludeCompositeObjects = $true
 $dacOptions.BlockOnPossibleDataLoss = $true
 $dacOptions.NoAlterStatementsToChangeClrTypes = $true
 $dacOptions.AllowDropBlockingAssemblies = $true
-$dacOptions.CommentOutSetVarDeclarations = $true
+$dacOptions.CommentOutSetVarDeclarations = $false
 $dacOptions.ScriptDatabaseOptions = $false
 $dacOptions.AllowIncompatiblePlatform = $true
 $dacOptions.VerifyCollationCompatibility = $false
@@ -136,10 +139,15 @@ $script = $script -ireplace "CREATE\s+ASSEMBLY\s+(\[.*?\])[\w\W]*?GO", "CREATE A
 Write-Output "Remove the alter assembly statement. Not needed and only bloats the script"
 $script = $script -ireplace "ALTER\s+ASSEMBLY[\w\W]*?GO", ""
 
-Write-Output "Set up script written to '$rootPath\$databaseName-setup.sql'"
-[System.IO.File]::WriteAllText("$rootPath\$databaseName-setup.sql", "$setupSql`r`n$script")
+$configuration = "net35"
+if ($rootPath -imatch "4.5") {
+    $configuration = "net45"
+}
 
-Write-Output "Creating release zip to $rootPath\Release.zip"
-Get-ChildItem $rootPath | Compress-Archive -Destination "$rootPath\Release.zip"
+Write-Output "Set up script written to '$rootPath\$databaseName-$configuration-setup.sql'"
+[System.IO.File]::WriteAllText("$rootPath\$databaseName-$configuration-setup.sql", "$setupSql`r`n$script")
 
-echo "GITHUB_RELEASE_PATH=$rootPath\Release.zip" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+Write-Output "Creating release zip to $releasePath"
+Get-ChildItem $rootPath | Compress-Archive -Destination "$releasePath" -CompressionLevel Optimal -Update
+
+
