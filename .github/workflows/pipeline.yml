@@ -12,9 +12,9 @@ jobs:
     env:
       Solution_Name: "${{ github.workspace }}\\SqlServer.ClrCommon.sln"                         # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: "${{ github.workspace }}\\SqlServer.ClrCommon.Tests\\SqlServer.ClrCommon.Tests.csproj"                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      configuration: Release
-      binary_path: "${{ github.workspace }}\\SqlServer.ClrCommon\\bin\\Release\\SqlServer.ClrCommon.dll"
-      dacpac_path: "${{ github.workspace }}\\SqlServer.ClrCommon\\bin\\Release\\SqlServer.ClrCommon.dacpac"    
+      configuration: "Release4.5"
+      binary_path: "${{ github.workspace }}\\SqlServer.ClrCommon\\bin\\Release4.5\\SqlServer.ClrCommon.dll"
+      dacpac_path: "${{ github.workspace }}\\SqlServer.ClrCommon\\bin\\Release4.5\\SqlServer.ClrCommon.dacpac"    
       database_name: CommonDB                     
       
     steps:
