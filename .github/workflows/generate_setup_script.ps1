@@ -138,7 +138,7 @@ if ($rootPath -imatch "4.5") {
     $configuration = "2014-and-greater"
 }
 
-Write-Output "Set up script written to '$rootPath\$databaseName-$configuration-setup.sql'"
+Write-Output "Set up script written to '$rootPath\SqlClrCommon-$configuration-setup.sql'"
 [System.IO.File]::WriteAllText("$rootPath\$databaseName-$configuration-setup.sql", "$setupSql`r`n$script")
 
 Write-Output "Creating release zip to $releasePath"
