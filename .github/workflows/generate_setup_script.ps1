@@ -20,7 +20,7 @@ Clear-Host
 $principal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
 $isAdmin = $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator);
 $scriptRoot = [System.IO.Directory]::GetParent($MyInvocation.MyCommand.Definition).FullName
-$rootPath = Split-Path $clrDllPath -Parent
+$rootPath = Split-Path $binaryPath -Parent
 
 Set-location $rootPath
 
