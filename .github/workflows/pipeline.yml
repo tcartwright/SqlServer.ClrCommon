@@ -1,0 +1,39 @@
+
+name: .NET Core Desktop
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: windows-latest  # For a list of available runner types, refer to
+                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+    steps:
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: "5.0.x" # SDK Version to use; x will use the latest version of the 5.0 channel
+    
+    - uses: actions/checkout@v2
+    
+    - name: Write Tree
+      run: |
+        tree /f .\
+          
+    - name: EnterDeveloperPowerShell
+      shell: powershell
+      run: |
+          $moduleName = "EnterDeveloperPowerShell"
+
+          $module = Get-InstalledModule $moduleName -ErrorAction SilentlyContinue
+          if (-not $module) {
+              Write-Host "Installing module: $moduleName"
+              Install-Module -Name $moduleName -Force
+          }
+
+          Import-Module $moduleName
+          Enter-VisualStudioDeveloperShell
+          # . msbuild $solutionPath /restore /target:ReBuild /interactive:false /nologo /p:platform="any cpu" /p:configuration="$configuration" /clp:Summary 
+
+        
