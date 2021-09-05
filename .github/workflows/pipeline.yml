@@ -2,6 +2,11 @@ name: SQL CLR Build
 
 on:
   workflow_dispatch:
+    inputs:
+      create_release:
+        description: 'Create Release'     
+        required: true
+        default: 'true'
 
 jobs:
   build:
@@ -17,8 +22,25 @@ jobs:
       dacpac_file: SqlServer.ClrCommon.dacpac
       bin_path: ${{ github.workspace }}\\SqlServer.ClrCommon\\bin
       database_name: CommonDB
+      create_release: ${{ github.event.inputs.create_release }}
 
     steps:
+      - name: Validate Job Input
+        shell: powershell
+        run: |
+          [object]$val = $env:create_release
+          [bool]$bval = $false
+          [int]$ival = $false
+
+          if ([boolean]::TryParse($val, [ref]$bval)) {
+              $env:create_release = $bval
+          } elseif ([int32]::TryParse($val, [ref]$ival)) {
+              $env:create_release = [bool]($ival -eq 0)
+          } else  {
+              throw "The value ($val) is not valid for [Create Release] and cannot be converted to a boolean. Please try again."
+              exit 1
+          }         
+
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -95,13 +117,13 @@ jobs:
       - name: Bump version and push tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v5.6
-        if: ${{ github.ref == 'refs/heads/master' }}
+        if: ${{ github.ref == 'refs/heads/master' && env.create_release }}
         with:
           github_token: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Create Release
         uses: ncipollo/release-action@v1
-        if: ${{ github.ref == 'refs/heads/master' }}
+        if: ${{ github.ref == 'refs/heads/master' && env.create_release }}
         with:
           artifacts: "${{ github.workspace }}\\Release.zip"
           token: "${{ secrets.GITHUB_TOKEN }}"
