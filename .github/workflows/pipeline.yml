@@ -7,7 +7,6 @@ on:
         description: 'Create Release'     
         required: true
         default: 'true'
-
 jobs:
   build:
     runs-on:
@@ -41,6 +40,17 @@ jobs:
               exit 1
           }         
 
+      - name: SplitRepoName
+        shell: powershell
+        run: |
+          $repoVals = "${{github.repository}}" -split '/', 2
+          echo "REPO_OWNER=$($repoVals[0])" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          echo "REPO_NAME=$($repoVals[1])" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+      - name: List Environment Variables
+        shell: powershell
+        run: dir env:* | Sort-Object Name
+
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -63,7 +73,6 @@ jobs:
       - name: Create Code Signing Certificate
         shell: powershell
         run: |
-          dir env:* | Sort-Object Name
           New-Item -ItemType directory -Path certificate
           Set-Content -Path certificate\certificate.txt -Value '${{ secrets.BASE64_ENCODED_PFX }}'
           certutil -decode certificate\certificate.txt certificate\certificate.pfx
@@ -100,14 +109,14 @@ jobs:
             -binaryPath "$env:bin_path\\$env:configuration\\$env:binary_file" `
             -pfxPath "${{ github.workspace }}\\certificate\certificate.pfx" `
             -databaseName "$env:database_name" `
-            -releasePath "${{ github.workspace }}\\Release.zip"
+            -releasePath "${{ github.workspace }}\\$($env:REPO_NAME).zip"
 
           .\.github\workflows\generate_setup_script.ps1 `
             -dacpacPath "$env:bin_path\\$env:configuration45\\$env:dacpac_file" `
             -binaryPath "$env:bin_path\\$env:configuration45\\$env:binary_file" `
             -pfxPath "${{ github.workspace }}\\certificate\certificate.pfx" `
             -databaseName "$env:database_name" `
-            -releasePath "${{ github.workspace }}\\Release.zip"
+            -releasePath "${{ github.workspace }}\\$($env:REPO_NAME).zip"
 
       # Remove the pfx
       - name: Remove the pfx
@@ -117,14 +126,14 @@ jobs:
       - name: Bump version and push tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v5.6
-        if: ${{ github.ref == 'refs/heads/master' && env.create_release }}
+        if: ${{ github.ref == 'refs/heads/master' && env.create_release == true }}
         with:
           github_token: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Create Release
         uses: ncipollo/release-action@v1
-        if: ${{ github.ref == 'refs/heads/master' && env.create_release }}
+        if: ${{ github.ref == 'refs/heads/master' && env.create_release == true }}
         with:
-          artifacts: "${{ github.workspace }}\\Release.zip"
+          artifacts: "${{ github.workspace }}\\$($env:REPO_NAME).zip"
           token: "${{ secrets.GITHUB_TOKEN }}"
           tag: "${{ steps.tag_version.outputs.new_tag }}"
