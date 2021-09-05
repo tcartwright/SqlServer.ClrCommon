@@ -126,13 +126,13 @@ jobs:
       - name: Bump version and push tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v5.6
-        if: ${{ github.ref == 'refs/heads/master' && env.create_release == "true" }}
+        if: ${{ github.ref == 'refs/heads/master' && env.create_release == 'true' }}
         with:
           github_token: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Create Release
         uses: ncipollo/release-action@v1
-        if: ${{ github.ref == 'refs/heads/master' && env.create_release == "true" }}
+        if: ${{ github.ref == 'refs/heads/master' && env.create_release == 'true' }}
         with:
           artifacts: "${{ github.workspace }}\\${{ env.REPO_NAME }}.zip"
           token: "${{ secrets.GITHUB_TOKEN }}"
