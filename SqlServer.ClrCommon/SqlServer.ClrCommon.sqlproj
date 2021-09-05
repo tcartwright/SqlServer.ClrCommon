@@ -108,9 +108,6 @@
     <Folder Include="Aggregates" />
     <Folder Include="Help" />
     <Folder Include="Help\CustomHelp" />
-    <Folder Include="cmn\" />
-    <Folder Include="cmn\Tables\" />
-    <Folder Include="cmn\Functions\" />
     <Folder Include="Security\" />
     <Folder Include="Readmes" />
   </ItemGroup>
@@ -155,17 +152,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DebugScript.sql" />
-    <Build Include="cmn\Tables\Numbers.sql" />
-    <Build Include="cmn\Tables\DimDate.sql" />
-    <Build Include="cmn\Functions\F_TABLE_DATE.sql">
-      <AnsiNulls>Off</AnsiNulls>
-      <QuotedIdentifier>Off</QuotedIdentifier>
-    </Build>
     <Build Include="Security\cmn.sql" />
     <Build Include="Security\clr.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="setup-start.sql">
+    <None Include="drop-assembly.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
