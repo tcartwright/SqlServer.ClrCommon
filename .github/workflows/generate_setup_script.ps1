@@ -133,9 +133,9 @@ $script = $script -ireplace "CREATE\s+ASSEMBLY\s+(\[.*?\])[\w\W]*?GO", "CREATE A
 Write-Output "Remove the alter assembly statement. Not needed and only bloats the script"
 $script = $script -ireplace "ALTER\s+ASSEMBLY[\w\W]*?GO", ""
 
-$configuration = "2012-and-lower"
+$configuration = "2008-and-lower"
 if ($rootPath -imatch "4.5") {
-    $configuration = "2014-and-greater"
+    $configuration = "2012-and-greater"
 }
 
 Write-Output "Set up script written to '$rootPath\SqlClrCommon-$configuration-setup.sql'"
