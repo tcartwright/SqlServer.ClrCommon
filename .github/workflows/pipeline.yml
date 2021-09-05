@@ -39,7 +39,9 @@ jobs:
 
       # https://archi-lab.net/code-signing-assemblies-with-github-actions/
       - name: Create Code Signing Certificate
+        shell: powershell
         run: |
+          dir env:* | Sort-Object Name
           New-Item -ItemType directory -Path certificate
           Set-Content -Path certificate\certificate.txt -Value '${{ secrets.BASE64_ENCODED_PFX }}'
           certutil -decode certificate\certificate.txt certificate\certificate.pfx
