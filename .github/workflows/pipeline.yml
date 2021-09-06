@@ -100,29 +100,6 @@ jobs:
           . signtool.exe sign /f certificate\certificate.pfx /p '${{ secrets.CODE_SIGN_PASSWORD }}' /t http://timestamp.comodoca.com/authenticode "$env:bin_path\\$env:configuration\\$env:binary_file"
           . signtool.exe sign /f certificate\certificate.pfx /p '${{ secrets.CODE_SIGN_PASSWORD }}' /t http://timestamp.comodoca.com/authenticode "$env:bin_path\\$env:configuration45\\$env:binary_file"
 
-
-      - name: Generate The Setup Script
-        shell: powershell
-        run: |
-          .\.github\workflows\generate_setup_script.ps1 `
-            -dacpacPath "$env:bin_path\\$env:configuration\\$env:dacpac_file" `
-            -binaryPath "$env:bin_path\\$env:configuration\\$env:binary_file" `
-            -pfxPath "${{ github.workspace }}\\certificate\certificate.pfx" `
-            -databaseName "$env:database_name" `
-            -releasePath "${{ github.workspace }}\\$($env:REPO_NAME).zip"
-
-          .\.github\workflows\generate_setup_script.ps1 `
-            -dacpacPath "$env:bin_path\\$env:configuration45\\$env:dacpac_file" `
-            -binaryPath "$env:bin_path\\$env:configuration45\\$env:binary_file" `
-            -pfxPath "${{ github.workspace }}\\certificate\certificate.pfx" `
-            -databaseName "$env:database_name" `
-            -releasePath "${{ github.workspace }}\\$($env:REPO_NAME).zip"
-
-      # Remove the pfx
-      - name: Remove the pfx
-        shell: powershell
-        run: Get-ChildItem -Path "certificate\" -File | Remove-Item -Force -Verbose
-
       - name: Bump version and push tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v5.6
@@ -130,10 +107,34 @@ jobs:
         with:
           github_token: "${{ secrets.GITHUB_TOKEN }}"
 
+      - name: Generate The Setup Script
+        shell: powershell
+        if: ${{ github.ref == 'refs/heads/master' && env.create_release == 'true' }}
+        run: |
+          .\.github\workflows\generate_setup_script.ps1 `
+            -dacpacPath "$env:bin_path\\$env:configuration\\$env:dacpac_file" `
+            -binaryPath "$env:bin_path\\$env:configuration\\$env:binary_file" `
+            -pfxPath "${{ github.workspace }}\\certificate\certificate.pfx" `
+            -databaseName "$env:database_name" `
+            -releasePath "${{ github.workspace }}\\$($env:REPO_NAME).${{ steps.tag_version.outputs.new_tag }}.zip"
+
+          .\.github\workflows\generate_setup_script.ps1 `
+            -dacpacPath "$env:bin_path\\$env:configuration45\\$env:dacpac_file" `
+            -binaryPath "$env:bin_path\\$env:configuration45\\$env:binary_file" `
+            -pfxPath "${{ github.workspace }}\\certificate\certificate.pfx" `
+            -databaseName "$env:database_name" `
+            -releasePath "${{ github.workspace }}\\$($env:REPO_NAME).${{ steps.tag_version.outputs.new_tag }}.zip"
+
+      # Remove the pfx
+      - name: Remove the pfx
+        shell: powershell
+        run: Get-ChildItem -Path "certificate\" -File | Remove-Item -Force -Verbose
+
+
       - name: Create Release
         uses: ncipollo/release-action@v1
         if: ${{ github.ref == 'refs/heads/master' && env.create_release == 'true' }}
         with:
-          artifacts: "${{ github.workspace }}\\${{ env.REPO_NAME }}.zip"
+          artifacts: "${{ github.workspace }}\\${{ env.REPO_NAME }}.${{ steps.tag_version.outputs.new_tag }}.zip"
           token: "${{ secrets.GITHUB_TOKEN }}"
           tag: "${{ steps.tag_version.outputs.new_tag }}"
